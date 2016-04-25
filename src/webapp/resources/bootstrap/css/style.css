@@ -1,0 +1,435 @@
+/* BODY */
+body {
+    font-family: "Arial Black, Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: rgba(238, 238, 238, 1);
+    height: 100%;
+    min-height: 100%;
+}
+
+html {
+    height: 100%;
+    min-height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:active {
+    text-decoration: none;
+    color: white;
+}
+
+.short {
+    border-width: 1px;
+    width: 150px;
+}
+
+.long {
+    border-width: 1px;
+    width: 100%;
+}
+
+/* SECTIONS */
+
+section .main {
+    padding-top: 11%;
+    text-align: center;
+    height: 700px;
+    height: 101vh;
+    background: url(/resources/img/superkid_promo.jpg) fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.main-text-label-yellow {
+    color: #fbd21e;
+    font-family: Arial Black;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.main-text-label-red {
+    color: #ec5356;
+    font-family: Arial Black;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+section .main-text-mob {
+    padding-top: 23%;
+    height: 600px;
+    text-align: center;
+    background: url(/resources/img/superkid_promo_xs.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-text-label-yellow-mob {
+    color: #fbd21e;
+    font-family: Arial Black;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.main-text-label-red-mob {
+    color: #ec5356;
+    font-family: Arial Black;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+section .kids {
+    background-color: rgba(238, 238, 238, 1);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+section .kids-advantages {
+    background: url("/resources/img/superkid_background.png");
+    padding-top: 70px;
+    padding-bottom: 0px;
+    text-align: center;
+}
+
+section .pajamas {
+    background-color: rgba(238, 238, 238, 1);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+section .pajamas-advantages {
+    background: url("/resources/img/superkid_background.png");
+    padding-top: 70px;
+    padding-bottom: 0px;
+    text-align: center;
+}
+
+section .panties {
+    background-color: rgba(238, 238, 238, 1);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+section .panties-advantages {
+    background: url("/resources/img/superkid_background.png");
+    padding-top: 70px;
+    padding-bottom: 0px;
+    text-align: center;
+}
+
+section .payments {
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+section .login {
+    background-color: white;
+    color: grey;
+    padding-top: 95px;
+    padding-bottom: 95px;
+    text-align: center;
+}
+
+section .admin-table-head-large {
+    background-color: white;
+    color: grey;
+    padding-top: 15px;
+    padding-bottom: 35px;
+    text-align: center;
+}
+
+section .admin-table-body {
+    background-color: white;
+    color: grey;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+section .section-name {
+    padding-top: 85px;
+    padding-bottom: 30px;
+    background-color: bisque;
+    color: grey;
+}
+
+section .admin-table-body div {
+    padding-bottom: 7px;
+    padding-top: 7px;
+}
+
+section .admin-table-body a {
+    margin-bottom: 15px;
+}
+
+section .edit-section div {
+    padding-bottom: 10px;
+}
+
+.admin-table-head-large {
+    background-color: white;
+    color: grey;
+    padding-top: 15px;
+    padding-bottom: 35px;
+    text-align: center;
+}
+
+.text-payments {
+    text-align: center;
+    color: grey;
+    font-style: italic;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+section .delivery {
+    background-color: rgba(238, 238, 238, 1);
+    padding-top: 20px;
+}
+
+.text-delivery {
+    text-align: center;
+    color: grey;
+    font-style: italic;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+section .google-map {
+    background: white;
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+
+#google-map {
+    max-width: 100%;
+}
+
+section .google-ads {
+    background: white;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+section .google-ads div {
+    padding-bottom: 60px;
+    background: white;
+}
+
+.footer {
+    background: url("/resources/img/superkid_background.png");
+    padding-top: 25px;
+    padding-bottom: 0px;
+}
+
+footer div {
+    color: white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+footer div a:hover {
+    text-decoration: underline;
+}
+
+footer div h5 {
+    padding-top: 10px;
+}
+
+section .one-product {
+    background-color: white;
+    padding-top: 80px;
+    color: grey;
+}
+
+section .cart {
+    background-color: white;
+    padding-top: 80px;
+    color: grey;
+}
+
+section .checkout {
+    background-color: white;
+    padding-top: 80px;
+    color: grey;
+}
+
+.empty-cart {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.input-padding {
+    padding-bottom: 25px;
+}
+
+.input {
+    height: 35px;
+    -moz-border-radius: 10%;
+    width: 170px;
+}
+
+.one-product-top {
+    padding-top: 40px;
+}
+
+.featured-products {
+    background-color: white;
+}
+
+/* NAVBAR */
+.navbar {
+    background: white;
+    opacity: 0.85;
+    -webkit-opacity: 0.85;
+    -moz-opacity: 0.85;
+}
+
+.super-nav {
+    color: #fbd21e;
+    font-family: Arial Black;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.kid-nav {
+    color: #ec5356;
+    font-family: Arial Black;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* PRODUCT */
+.blink {
+    -webkit-transition: all ease-in-out .2s;
+}
+
+.blink:hover {
+    opacity: .7;
+}
+
+.price-top {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    width: 80px;
+    height: 30px;
+    background: rosybrown;
+    border-radius: 50% / 10%;
+    color: white;
+    text-align: center;
+    text-indent: .1em;
+}
+
+.price-top-featured {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    width: 80px;
+    height: 30px;
+    background: rosybrown;
+    border-radius: 50% / 10%;
+    color: white;
+    text-align: center;
+    text-indent: .1em;
+}
+
+section div a div {
+    padding-top: 15px;
+}
+
+section div a {
+    text-decoration: none;
+}
+
+.product {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/*ICONS*/
+.icon-block {
+    padding-bottom: 45px;
+    text-align: center;
+}
+
+.icon-block-payment-delivery {
+    padding-top: 75px;
+    padding-bottom: 45px;
+    text-align: center;
+}
+
+.intro-text {
+    text-align: center;
+}
+
+.icon-white {
+    color: white;
+}
+
+.icon-yellow {
+    color: #fbd21e;
+}
+
+.icon-red {
+    color: #ec5356;
+}
+
+.icon-text-white {
+    color: white;
+    font-family: Arial Black;
+    font-size: 22px;
+}
+
+.icon-text-yellow {
+    color: #fbd21e;
+    font-family: Arial Black;
+    font-size: 22px;
+}
+
+.icon-text-red {
+    color: #ec5356;
+    font-family: Arial Black;
+    font-size: 22px;
+}
+
+.text-red {
+    color: red;
+}
+
+/* FOOTER*/
+.super {
+    color: #fbd21e;
+    font-family: Arial Black;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.kid {
+    color: #ec5356;
+    font-family: Arial Black;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.social {
+    padding-left: 16px;
+    color: white;
+}

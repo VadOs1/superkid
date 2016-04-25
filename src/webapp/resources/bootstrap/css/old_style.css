@@ -1,0 +1,156 @@
+body {
+    background: url("/resources/img/background_image.png");
+}
+
+.main {
+    min-width: 980px;
+    max-width: 980px;
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+header {
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+footer {
+    background: #526e86;
+    border: 3px solid #526e86;
+    border-radius: 0 0 10px 10px;
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+}
+
+.google-ads {
+    background: white;
+    padding-left: 10px;
+
+}
+
+.product-view {
+    background: white;
+    padding-left: 45px;
+    padding-top: 45px;
+    padding-right: 45px;
+    padding-bottom: 45px;
+}
+
+.bg-white {
+    background: white;
+}
+
+.text {
+    color: grey;
+    padding-left: 50px;
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+}
+
+.text-cart {
+    color: grey;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+}
+
+.main-menu {
+    margin-top: 15px;
+    height: 45px;
+    background: #526e86;
+    border: 3px solid #526e86;
+    border-radius: 10px 10px 0 0;
+}
+
+.menu-active {
+    background: white;
+    height: 43px;
+    border-radius: 5px 5px 0 0;
+    margin-right: 2px;
+    color: black;
+}
+
+.menu-non-active {
+    height: 43px;
+    border-radius: 5px 5px 0 0;
+    margin-right: 2px;
+    color: white;
+}
+
+a.menu-non-active:hover, a.menu-non-active:hover:visited, a.menu-active:hover, a.menu-active:hover:visited {
+    color: #000000;
+    background: white;
+    text-decoration: none;
+}
+
+a {
+    color: white;
+}
+
+.blink {
+    -webkit-transition: all ease-in-out .2s;
+}
+
+.blink:hover {
+    opacity: .7;
+}
+
+.product-preview {
+    padding-top: 15px;
+    padding-bottom: 25px;
+    text-align: center;
+}
+
+.price-top {
+    position: relative;
+    top: -270px;
+    left: 115px;
+    width: 80px;
+    height: 30px;
+    background: rosybrown;
+    border-radius: 50% / 10%;
+    color: white;
+    text-align: center;
+    text-indent: .1em;
+}
+
+.price-bar {
+    position: relative;
+    top: -270px;
+    left: 145px;
+    width: 80px;
+    height: 30px;
+    background: rosybrown;
+    border-radius: 50% / 10%;
+    color: white;
+    text-align: center;
+    text-indent: .1em;
+}
+
+.carousel-control.left {
+    background-image: none;
+}
+
+.carousel-control.right {
+    background-image: none;
+}
+
+.carousel-indicators li {
+    background-color: grey;
+}
+
+.carousel-indicators .active {
+    background-color: red;
+}
