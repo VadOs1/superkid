@@ -9,8 +9,8 @@
     <meta lang="ru">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="title" content="Superkid || Детский магазин модных товаров">
-    <meta name="description" content="${product.productInfo.name}"/>
-    <meta name="keywords" content="${product.productInfo.name}"/>
+    <meta name="description" content="${productsByArticle.get(0).productInfo.name}"/>
+    <meta name="keywords" content="${productsByArticle.get(0).productInfo.name}"/>
     <meta name="robots" content="index,follow">
     <title>${product.productInfo.name} || Superkid || Детский магазин модных товаров</title>
     <link rel="shortcut icon" href="/resources/img/superkid_favicon.png">
