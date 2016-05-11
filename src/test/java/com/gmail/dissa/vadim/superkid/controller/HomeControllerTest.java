@@ -4,6 +4,7 @@ import com.gmail.dissa.vadim.superkid.config.RootConfig;
 import com.gmail.dissa.vadim.superkid.config.WebConfig;
 import com.gmail.dissa.vadim.superkid.domain.Order;
 import com.gmail.dissa.vadim.superkid.domain.Product;
+import com.gmail.dissa.vadim.superkid.exception.BadRequestException;
 import com.gmail.dissa.vadim.superkid.service.CRMService;
 import com.gmail.dissa.vadim.superkid.service.ProductService;
 import com.gmail.dissa.vadim.superkid.service.SendToJmsService;
@@ -179,5 +180,11 @@ public class HomeControllerTest {
         assertEquals(new ArrayList<Product>(), modelAndView.getModel().get("productsInCart"));
         assertEquals(100.0, modelAndView.getModel().get("productsInCartAmount"));
         assertEquals("checkout", modelAndView.getViewName());
+    }
+
+    @Test(expected = BadRequestException.class)
+    public void testBadRequestInCheckoutGetMethod() {
+        HomeController homeController = new HomeController(productService, crmService, sendToJmsService, shoppingCartService);
+        homeController.checkoutGet();
     }
 }

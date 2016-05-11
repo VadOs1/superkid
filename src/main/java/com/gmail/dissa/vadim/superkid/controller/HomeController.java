@@ -1,6 +1,7 @@
 package com.gmail.dissa.vadim.superkid.controller;
 
 import com.gmail.dissa.vadim.superkid.domain.Product;
+import com.gmail.dissa.vadim.superkid.exception.BadRequestException;
 import com.gmail.dissa.vadim.superkid.service.CRMService;
 import com.gmail.dissa.vadim.superkid.service.ProductService;
 import com.gmail.dissa.vadim.superkid.service.SendToJmsService;
@@ -92,5 +93,10 @@ public class HomeController {
         modelAndView.setViewName("checkout");
         shoppingCartService.removeProducts();
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/checkout/", method = RequestMethod.GET)
+    public void checkoutGet() {
+        throw new BadRequestException("GET method in checkout is not supported");
     }
 }
