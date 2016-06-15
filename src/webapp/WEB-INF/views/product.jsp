@@ -12,7 +12,7 @@
     <meta name="description" content="${productsByArticle.get(0).productInfo.name}"/>
     <meta name="keywords" content="${productsByArticle.get(0).productInfo.name}"/>
     <meta name="robots" content="index,follow">
-    <title>${product.productInfo.name} || Superkid || Детский магазин модных товаров</title>
+    <title>${productsByArticle[0].productInfo.name} || Superkid || Детский магазин модных товаров</title>
     <link rel="shortcut icon" href="/resources/img/superkid_favicon.png">
     <script src="/resources/bootstrap/js/jquery-1.11.1.min.js"></script>
     <script src="/resources/bootstrap/js/jquery.appear.js"></script>
