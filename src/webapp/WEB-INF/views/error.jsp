@@ -43,7 +43,7 @@
                 <span class="icon-bar"></span><span class="icon-bar"></span>
             </button>
             <div class="navbar-brand">
-                <span class="super-nav">Super</span><span class="kid-nav">Kid</span>
+                <a href="http://www.superkid.com.ua"><span class="super-nav">Super</span><span class="kid-nav">Kid</span></a>
             </div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
