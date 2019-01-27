@@ -7,17 +7,17 @@ import java.io.Serializable;
 @Table(name = "sales")
 public class Sales implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    long id;
+    private long id;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id")
-    Order order;
+    private Order order;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id")
-    Product product;
+    private Product product;
     @Column(name = "price")
-    int price;  // so we can see actual sale price if we provide some discount or change product price to new amount
+    private int price;  // so we can see actual sale price if we provide some discount or change product price to new amount
 
     public Sales(){
 

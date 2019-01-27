@@ -9,7 +9,7 @@ import java.util.List;
 @Table(name = "orders")
 public class Order implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
     @Column(name = "date")
@@ -27,7 +27,7 @@ public class Order implements Serializable {
     @Column(name = "comments")
     private String comments;
     @Transient
-    List<Sales> salesList;
+    private List<Sales> salesList;
 
     public Order() {
 

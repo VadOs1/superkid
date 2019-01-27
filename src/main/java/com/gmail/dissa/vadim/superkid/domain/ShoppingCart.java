@@ -16,7 +16,7 @@ public class ShoppingCart implements Serializable {
     private List<Product> products;
 
     public ShoppingCart() {
-        this.products = new ArrayList<Product>();
+        this.products = new ArrayList<>();
     }
 
     public ShoppingCart(List<Product> products) {
