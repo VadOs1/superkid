@@ -1,6 +1,7 @@
 package com.gmail.dissa.vadim.superkid.config;
 
 import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
+import org.flywaydb.core.Flyway;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -47,12 +48,21 @@ public class RootConfig {
         return dataSource;
     }
 
+    // Making Flyway migrations
+    @Bean(initMethod = "migrate")
+    public Flyway flyway() {
+        Flyway flyway = new Flyway();
+        flyway.setLocations("classpath:migration");
+        flyway.setDataSource(dataSource());
+        return flyway;
+    }
+
     // Making JPA provider
     @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
         hibernateJpaVendorAdapter.setShowSql(false);
-        hibernateJpaVendorAdapter.setGenerateDdl(true);
+        hibernateJpaVendorAdapter.setGenerateDdl(false);
         hibernateJpaVendorAdapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
         return hibernateJpaVendorAdapter;
     }

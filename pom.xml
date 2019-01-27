@@ -81,6 +81,11 @@
             <artifactId>dbcp</artifactId>
             <version>6.0.45</version>
         </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>3.0</version>
+        </dependency>
         <!-- ASPECTJ -->
         <dependency>
             <groupId>org.aspectj</groupId>
