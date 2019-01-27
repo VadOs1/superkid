@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.ContextHierarchy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -26,6 +28,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         @ContextConfiguration(classes = RootConfig.class),
         @ContextConfiguration(classes = WebConfig.class)
 })
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@ActiveProfiles("test")
 public class SeoControllerTest {
     @Autowired
     private WebApplicationContext wac;
@@ -42,7 +46,7 @@ public class SeoControllerTest {
     }
 
     @Test
-    public void testModelAndViewInRobotsTxtMethod() throws Exception {
+    public void testModelAndViewInRobotsTxtMethod() {
         SeoController seoController = new SeoController();
         String response = seoController.getRobotsTxt();
         assertNotNull(response);
@@ -56,7 +60,7 @@ public class SeoControllerTest {
     }
 
     @Test
-    public void testModelAndViewInSiteMapXmlMethod() throws Exception {
+    public void testModelAndViewInSiteMapXmlMethod() {
         SeoController seoController = new SeoController();
         String response = seoController.getRobotsTxt();
         assertNotNull(response);

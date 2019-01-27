@@ -28,9 +28,9 @@ public class RootConfig {
     @Profile("!test")
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/superkid_local?autoReconnect=true&useSSL=false");
+        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/superkid?autoReconnect=true&useSSL=false");
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUsername("user");
+        dataSource.setUsername("root");
         dataSource.setPassword("password");
         dataSource.setInitialSize(5);
         dataSource.setMaxActive(20);
