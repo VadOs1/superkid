@@ -30,7 +30,7 @@ INSERT INTO product_sizes (size) VALUES('Size L');
 
 CREATE TABLE products (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
-  product_info_id int(10) unsigned DEFAULT NOT NULL,
+  product_info_id int(10) unsigned NOT NULL,
   product_category_id int(10) unsigned NOT NULL,
   product_size_id int(10) unsigned NOT NULL,
   price decimal(7,2) unsigned NOT NULL,
