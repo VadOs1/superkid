@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class ControllerExceptionAspect {
 
-    private Logger logger;
+    private final Logger logger;
 
     public ControllerExceptionAspect() {
         logger = Logger.getLogger(ControllerExceptionAspect.class);
