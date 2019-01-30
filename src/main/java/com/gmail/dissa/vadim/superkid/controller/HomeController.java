@@ -1,12 +1,13 @@
 package com.gmail.dissa.vadim.superkid.controller;
 
-import com.gmail.dissa.vadim.superkid.domain.Product;
+import com.gmail.dissa.vadim.superkid.domain.Order;
 import com.gmail.dissa.vadim.superkid.exception.BadRequestException;
 import com.gmail.dissa.vadim.superkid.service.CRMService;
 import com.gmail.dissa.vadim.superkid.service.ProductService;
-import com.gmail.dissa.vadim.superkid.service.SendToJmsService;
+import com.gmail.dissa.vadim.superkid.service.SendMailService;
 import com.gmail.dissa.vadim.superkid.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,20 +26,20 @@ public class HomeController {
 
     private ProductService productService;
     private CRMService crmService;
-    private SendToJmsService sendToJmsService;
-    // Session scope -> stores shopping cart for every visitor (domain package class)
+       // Session scope -> stores shopping cart for every visitor (domain package class)
     private ShoppingCartService shoppingCartService;
+    private SendMailService sendMailService;
 
     @Autowired
     public HomeController(ProductService productService,
                           CRMService crmService,
-                          SendToJmsService sendToJmsService,
-                          ShoppingCartService shoppingCartService){
+                          ShoppingCartService shoppingCartService,
+                          SendMailService sendMailService){
         this.productService = productService;
         this.crmService = crmService;
-        this.sendToJmsService = sendToJmsService;
         this.shoppingCartService = shoppingCartService;
-    };
+        this.sendMailService = sendMailService;
+    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView home(ModelAndView modelAndView) {
@@ -87,8 +88,10 @@ public class HomeController {
                                  @RequestParam(value = "email") String email,
                                  @RequestParam(value = "phone") String phone,
                                  ModelAndView modelAndView) {
-        modelAndView.addObject("order", sendToJmsService.sendMailAlert(crmService.saveOrder(name, email, phone)));
-        modelAndView.addObject("productsInCart", new ArrayList<Product>(shoppingCartService.getProducts()));
+        Order order = crmService.saveOrder(name, email, phone);
+        sendMailService.sendMail(order, new SimpleMailMessage());
+        modelAndView.addObject("order", order);
+        modelAndView.addObject("productsInCart", new ArrayList<>(shoppingCartService.getProducts()));
         modelAndView.addObject("productsInCartAmount", shoppingCartService.getAmountOfGoodsInCart());
         modelAndView.setViewName("checkout");
         shoppingCartService.removeProducts();

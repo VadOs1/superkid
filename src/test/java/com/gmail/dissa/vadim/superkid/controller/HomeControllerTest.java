@@ -7,7 +7,7 @@ import com.gmail.dissa.vadim.superkid.domain.Product;
 import com.gmail.dissa.vadim.superkid.exception.BadRequestException;
 import com.gmail.dissa.vadim.superkid.service.CRMService;
 import com.gmail.dissa.vadim.superkid.service.ProductService;
-import com.gmail.dissa.vadim.superkid.service.SendToJmsService;
+import com.gmail.dissa.vadim.superkid.service.SendMailService;
 import com.gmail.dissa.vadim.superkid.service.ShoppingCartService;
 import org.junit.Before;
 import org.junit.Test;
@@ -52,16 +52,16 @@ public class HomeControllerTest {
     private HomeController homeController;
     private ProductService productService;
     private CRMService crmService;
-    private SendToJmsService sendToJmsService;
+    private SendMailService sendMailService;
     private ShoppingCartService shoppingCartService;
 
     @Before
     public void setup() {
         productService = mock(ProductService.class);
         crmService = mock(CRMService.class);
-        sendToJmsService = mock(SendToJmsService.class);
+        sendMailService = mock(SendMailService.class);
         shoppingCartService = mock(ShoppingCartService.class);
-        homeController = new HomeController(productService, crmService, sendToJmsService, shoppingCartService);
+        homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
 
         when(productService.getProducts()).thenReturn(new HashSet<Product>());
         when(shoppingCartService.getProducts()).thenReturn(new ArrayList<Product>());
@@ -72,9 +72,8 @@ public class HomeControllerTest {
         when(shoppingCartService.addProduct(any(Product.class))).thenReturn(new Product());
 
         when(crmService.saveOrder("name", "email", "phone")).thenReturn(mock(Order.class));
-        when(sendToJmsService.sendMailAlert(any(Order.class))).thenReturn(new Order());
 
-        this.mockMvc = MockMvcBuilders.standaloneSetup(new HomeController(productService, crmService, sendToJmsService, shoppingCartService)).build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(new HomeController(productService, crmService, shoppingCartService, sendMailService)).build();
     }
 
     @Test
@@ -106,7 +105,7 @@ public class HomeControllerTest {
 
     @Test
     public void testModelAndViewInProductMethod() throws Exception {
-        HomeController homeController = new HomeController(productService, crmService, sendToJmsService, shoppingCartService);
+        HomeController homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
         ModelAndView modelAndView = homeController.product("300101", new ModelAndView());
         assertEquals("product", modelAndView.getViewName());
         assertEquals(new ArrayList<>(), modelAndView.getModel().get("productsByArticle"));
@@ -125,7 +124,7 @@ public class HomeControllerTest {
 
     @Test
     public void testModelAndViewInCartMethod() throws Exception {
-        HomeController homeController = new HomeController(productService, crmService, sendToJmsService, shoppingCartService);
+        HomeController homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
         ModelAndView modelAndView = homeController.cart(new ModelAndView());
         assertEquals("cart", modelAndView.getViewName());
         assertEquals(100.0, modelAndView.getModel().get("productsInCartAmount"));
@@ -142,7 +141,7 @@ public class HomeControllerTest {
 
     @Test
     public void testModelAndViewInCartNewMethod() throws Exception {
-        HomeController homeController = new HomeController(productService, crmService, sendToJmsService, shoppingCartService);
+        HomeController homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
         ModelAndView modelAndView = homeController.cartNew("300101", 1, new ModelAndView());
         assertNotNull(modelAndView.getModel().get("product"));
         assertEquals("redirect:/cart/", modelAndView.getViewName());
@@ -158,7 +157,7 @@ public class HomeControllerTest {
 
     @Test
     public void testModelAndViewInClearCartMethod() throws Exception {
-        HomeController homeController = new HomeController(productService, crmService, sendToJmsService, shoppingCartService);
+        HomeController homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
         ModelAndView modelAndView = homeController.cartClear(new ModelAndView());
         assertEquals(new ArrayList<Product>(), modelAndView.getModel().get("products"));
         assertEquals("redirect:/cart/", modelAndView.getViewName());
@@ -178,8 +177,8 @@ public class HomeControllerTest {
 
     @Test
     public void testModelAndViewInCheckoutMethod() throws Exception {
-        HomeController homeController = new HomeController(productService, crmService, sendToJmsService, shoppingCartService);
-        ModelAndView modelAndView = homeController.checkout("name", "email", "phonr", new ModelAndView());
+        HomeController homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
+        ModelAndView modelAndView = homeController.checkout("name", "email", "phone", new ModelAndView());
         assertNotNull(modelAndView.getModel().get("order"));
         assertEquals(new ArrayList<Product>(), modelAndView.getModel().get("productsInCart"));
         assertEquals(100.0, modelAndView.getModel().get("productsInCartAmount"));
@@ -188,7 +187,7 @@ public class HomeControllerTest {
 
     @Test(expected = BadRequestException.class)
     public void testBadRequestInCheckoutGetMethod() {
-        HomeController homeController = new HomeController(productService, crmService, sendToJmsService, shoppingCartService);
+        HomeController homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
         homeController.checkoutGet();
     }
 }

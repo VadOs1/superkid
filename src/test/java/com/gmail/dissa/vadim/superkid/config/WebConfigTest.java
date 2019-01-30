@@ -43,8 +43,6 @@ public class WebConfigTest {
     @Autowired
     SendMailService sendMailService;
     @Autowired
-    SendToJmsService sendToJmsService;
-    @Autowired
     ShoppingCartService shoppingCartService;
 
     @Test
@@ -90,11 +88,6 @@ public class WebConfigTest {
     @Test
     public void sendMailServiceShouldNotBeNull(){
         assertNotNull("SendMailService should not be null",sendMailService);
-    }
-
-    @Test
-    public void sendToJmsServiceShouldNotBeNull(){
-        assertNotNull("SendToJmsService should not be null",sendToJmsService);
     }
 
     @Test

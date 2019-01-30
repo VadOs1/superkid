@@ -5,6 +5,6 @@ import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 
 public interface SendMailService {
-    public void setMailSender(MailSender mailSender);
-    public void sendMail(Order order, SimpleMailMessage simpleMailMessage);
+    void setMailSender(MailSender mailSender);
+    void sendMail(Order order, SimpleMailMessage simpleMailMessage);
 }

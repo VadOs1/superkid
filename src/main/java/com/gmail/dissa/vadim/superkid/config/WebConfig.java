@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @EnableAspectJAutoProxy
 @ComponentScan({"com.gmail.dissa.vadim.superkid.controller", "com.gmail.dissa.vadim.superkid.service", "com.gmail.dissa.vadim.superkid.aspect"})
-@ImportResource({"classpath:jms-config.xml", "classpath:mail-config.xml"})
+@ImportResource({"classpath:mail-config.xml"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     // Setting views
