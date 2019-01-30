@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,22 +18,20 @@ public class SendMailServiceTest {
 
     private SendMailService sendMailService;
     private MailSender mailSender;
-    private SimpleMailMessage simpleMailMessage;
     private Order order;
 
     @Before
     public void setup() {
-        mailSender = mock(MailSender.class);
-        simpleMailMessage = mock(SimpleMailMessage.class);
-        order = new Order(new Date(), mock(OrderStatus.class), mock(Client.class), new String(), new String(), new String());
+        mailSender = mock(JavaMailSenderImpl.class);
+        sendMailService = new SendMailServiceImpl(mailSender);
+        order = new Order(new Date(), mock(OrderStatus.class),
+                mock(Client.class), "", "", "");
         order.setSalesList(new ArrayList<>());
-        sendMailService = new SendMailServiceImpl();
-        sendMailService.setMailSender(mailSender);
     }
 
     @Test
-    public void testSendMail(){
-        sendMailService.sendMail(order, simpleMailMessage);
-        verify(mailSender, times(1)).send(simpleMailMessage);
+    public void testSendMail() {
+        sendMailService.sendMail(order);
+        verify(mailSender, times(1)).send(any(SimpleMailMessage.class));
     }
 }

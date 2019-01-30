@@ -7,7 +7,6 @@ import com.gmail.dissa.vadim.superkid.service.ProductService;
 import com.gmail.dissa.vadim.superkid.service.SendMailService;
 import com.gmail.dissa.vadim.superkid.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,30 +14,36 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.PreDestroy;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 @Controller
 @RequestMapping("/")
 public class HomeController {
-
-    // TODO: CAPTCHA TO CART -> CHECKOUT
-
-    private ProductService productService;
-    private CRMService crmService;
-       // Session scope -> stores shopping cart for every visitor (domain package class)
-    private ShoppingCartService shoppingCartService;
-    private SendMailService sendMailService;
+    private final ProductService productService;
+    private final CRMService crmService;
+    private final ShoppingCartService shoppingCartService;
+    private final SendMailService sendMailService;
+    private final ExecutorService executorService;
 
     @Autowired
     public HomeController(ProductService productService,
                           CRMService crmService,
                           ShoppingCartService shoppingCartService,
-                          SendMailService sendMailService){
+                          SendMailService sendMailService) {
         this.productService = productService;
         this.crmService = crmService;
         this.shoppingCartService = shoppingCartService;
         this.sendMailService = sendMailService;
+        this.executorService = Executors.newFixedThreadPool(3);
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        executorService.shutdown();
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -89,7 +94,7 @@ public class HomeController {
                                  @RequestParam(value = "phone") String phone,
                                  ModelAndView modelAndView) {
         Order order = crmService.saveOrder(name, email, phone);
-        sendMailService.sendMail(order, new SimpleMailMessage());
+        executorService.execute(() -> sendMailService.sendMail(order));
         modelAndView.addObject("order", order);
         modelAndView.addObject("productsInCart", new ArrayList<>(shoppingCartService.getProducts()));
         modelAndView.addObject("productsInCartAmount", shoppingCartService.getAmountOfGoodsInCart());

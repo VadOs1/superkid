@@ -2,41 +2,36 @@ package com.gmail.dissa.vadim.superkid.service;
 
 import com.gmail.dissa.vadim.superkid.domain.Order;
 import com.gmail.dissa.vadim.superkid.domain.Sales;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class SendMailServiceImpl implements SendMailService {
-    private MailSender mailSender;
-    private String subject;
-    private String body;
-    private final String[] receivers = new String[2];
+    private final MailSender mailSender;
 
-    public SendMailServiceImpl() {
-        receivers[0] = "vadim.dissa@gmail.com";
-        receivers[1] = "natalia.dissa@gmail.com";
-    }
-
-    public void setMailSender(MailSender mailSender) {
+    @Autowired
+    public SendMailServiceImpl(MailSender mailSender) {
         this.mailSender = mailSender;
     }
 
-    // TODO: make async
-    public synchronized void sendMail(Order order, SimpleMailMessage simpleMailMessage) {
-        subject = "SuperKid || New Order # " + order.getId();
-        body = order.getClient().getName() + "\n\n"
+    public void sendMail(Order order) {
+        StringBuilder body = new StringBuilder(order.getClient().getName() + "\n\n"
                 + order.getClient().getEmail() + "\n\n"
-                + order.getClient().getPhone() + "\n\n";
+                + order.getClient().getPhone() + "\n\n");
         for (Sales sale : order.getSalesList()) {
-            body += sale.getProduct().getProductCategory().getName() + " "
-                    + sale.getProduct().getProductInfo().getName() + " "
-                    + sale.getProduct().getProductSize().getSize() + " "
-                    + sale.getProduct().getPrice() + "\n\n";
+            body.append(sale.getProduct().getProductCategory().getName())
+                    .append(" ")
+                    .append(sale.getProduct().getProductInfo().getName())
+                    .append(" ").append(sale.getProduct().getProductSize().getSize())
+                    .append(" ").append(sale.getProduct().getPrice())
+                    .append("\n\n");
         }
-        simpleMailMessage.setFrom("natalia.dissa@gmail.com");
-        simpleMailMessage.setTo(receivers);
-        simpleMailMessage.setSubject(subject);
-        simpleMailMessage.setText(body);
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+        simpleMailMessage.setTo(new String[]{"vadim.dissa@gmail.com", "natalia.dissa@gmail.com"});
+        simpleMailMessage.setSubject("SuperKid || New Order # " + order.getId());
+        simpleMailMessage.setText(body.toString());
         mailSender.send(simpleMailMessage);
     }
 }
