@@ -10,16 +10,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/admin/")
 public class AdminController {
-
-    // TODO: ADD PRODUCTS MANAGEMENT TOOL
-    // TODO: ADD ORDERS MANAGEMENT TOOL
-
-    private CRMService crmService;
+    private final CRMService crmService;
 
     @Autowired
-    public AdminController(CRMService crmService){this.crmService=crmService;};
+    public AdminController(CRMService crmService) {
+        this.crmService = crmService;
+    }
 
-    // Default admin page (Spring Security in-memory protected)
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView admin(ModelAndView modelAndView) {
         modelAndView.addObject("userName", crmService.getAuthentificatedUserName());
