@@ -8,9 +8,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    // Setting security rules
-    // TODO: DATABASE USER STORE
-    // TODO: METHOD SECURITY LEVEL
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -28,7 +25,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable();
     }
 
-    // Adding in-memory users
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
