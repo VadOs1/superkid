@@ -1,5 +1,6 @@
 package com.gmail.dissa.vadim.superkid.repository;
 
+import com.gmail.dissa.vadim.superkid.config.MailConfig;
 import com.gmail.dissa.vadim.superkid.config.RootConfig;
 import com.gmail.dissa.vadim.superkid.config.WebConfig;
 import org.junit.Before;
@@ -19,15 +20,15 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
+        @ContextConfiguration(classes = MailConfig.class),
         @ContextConfiguration(classes = RootConfig.class),
         @ContextConfiguration(classes = WebConfig.class)
 })
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @ActiveProfiles("test")
 public class ProductInfoRepositoryTest {
-
     @Autowired
-    ProductInfoRepository productInfoRepository;
+    private ProductInfoRepository productInfoRepository;
 
     @Before
     public void setup() {

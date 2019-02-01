@@ -1,5 +1,6 @@
 package com.gmail.dissa.vadim.superkid.controller;
 
+import com.gmail.dissa.vadim.superkid.config.MailConfig;
 import com.gmail.dissa.vadim.superkid.config.RootConfig;
 import com.gmail.dissa.vadim.superkid.config.WebConfig;
 import com.gmail.dissa.vadim.superkid.domain.Order;
@@ -40,6 +41,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
+        @ContextConfiguration(classes = MailConfig.class),
         @ContextConfiguration(classes = RootConfig.class),
         @ContextConfiguration(classes = WebConfig.class)
 })

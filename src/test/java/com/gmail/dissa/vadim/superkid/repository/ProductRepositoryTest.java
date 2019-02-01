@@ -1,5 +1,6 @@
 package com.gmail.dissa.vadim.superkid.repository;
 
+import com.gmail.dissa.vadim.superkid.config.MailConfig;
 import com.gmail.dissa.vadim.superkid.config.RootConfig;
 import com.gmail.dissa.vadim.superkid.config.WebConfig;
 import com.gmail.dissa.vadim.superkid.domain.Product;
@@ -20,15 +21,15 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
+        @ContextConfiguration(classes = MailConfig.class),
         @ContextConfiguration(classes = RootConfig.class),
         @ContextConfiguration(classes = WebConfig.class)
 })
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @ActiveProfiles("test")
 public class ProductRepositoryTest {
-
     @Autowired
-    ProductRepository productRepository;
+    private ProductRepository productRepository;
 
     @Test
     public void testFindByProductInfoId() {
@@ -44,7 +45,7 @@ public class ProductRepositoryTest {
         assertEquals(product.getProductCategory().getId(), 2);
         assertEquals(product.getProductInfo().getId(), 3);
         assertEquals(product.getProductSize().getId(), 3);
-        assertEquals((int)product.getPrice(), 300);
+        assertEquals((int) product.getPrice(), 300);
         assertEquals(product.getQuantity(), 30);
     }
 }

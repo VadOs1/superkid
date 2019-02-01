@@ -1,5 +1,6 @@
 package com.gmail.dissa.vadim.superkid.controller;
 
+import com.gmail.dissa.vadim.superkid.config.MailConfig;
 import com.gmail.dissa.vadim.superkid.config.RootConfig;
 import com.gmail.dissa.vadim.superkid.config.WebConfig;
 import com.gmail.dissa.vadim.superkid.domain.ProductInfo;
@@ -29,6 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
+        @ContextConfiguration(classes = MailConfig.class),
         @ContextConfiguration(classes = RootConfig.class),
         @ContextConfiguration(classes = WebConfig.class)
 })
@@ -45,7 +47,7 @@ public class RestControllerTest {
     }
 
     @Test
-    public void testResponseCodeAndResponseTypeInRestMethod() throws Exception{
+    public void testResponseCodeAndResponseTypeInRestMethod() throws Exception {
         mockMvc.perform(get("/rest?article=300101"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))

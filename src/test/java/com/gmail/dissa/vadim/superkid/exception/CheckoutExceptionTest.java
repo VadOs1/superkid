@@ -1,5 +1,6 @@
 package com.gmail.dissa.vadim.superkid.exception;
 
+import com.gmail.dissa.vadim.superkid.config.MailConfig;
 import com.gmail.dissa.vadim.superkid.config.RootConfig;
 import com.gmail.dissa.vadim.superkid.config.WebConfig;
 import com.gmail.dissa.vadim.superkid.controller.HomeController;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
+        @ContextConfiguration(classes = MailConfig.class),
         @ContextConfiguration(classes = RootConfig.class),
         @ContextConfiguration(classes = WebConfig.class)
 })
@@ -29,7 +31,7 @@ public class CheckoutExceptionTest {
 
     @Test(expected = CheckoutException.class)
     public void testCheckoutException() {
-        HomeController homeController = (HomeController)applicationContext.getAutowireCapableBeanFactory().getBean("homeController");
-        homeController.checkout(null, null, null , new ModelAndView());
+        HomeController homeController = (HomeController) applicationContext.getAutowireCapableBeanFactory().getBean("homeController");
+        homeController.checkout(null, null, null, new ModelAndView());
     }
 }

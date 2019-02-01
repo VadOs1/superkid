@@ -1,5 +1,6 @@
 package com.gmail.dissa.vadim.superkid.exception;
 
+import com.gmail.dissa.vadim.superkid.config.MailConfig;
 import com.gmail.dissa.vadim.superkid.config.RootConfig;
 import com.gmail.dissa.vadim.superkid.config.WebConfig;
 import com.gmail.dissa.vadim.superkid.controller.HomeController;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
+        @ContextConfiguration(classes = MailConfig.class),
         @ContextConfiguration(classes = RootConfig.class),
         @ContextConfiguration(classes = WebConfig.class)
 })
@@ -25,11 +27,11 @@ import org.springframework.web.servlet.ModelAndView;
 @ActiveProfiles("test")
 public class BadRequestExceptionTest {
     @Autowired
-    ApplicationContext applicationContext;
+    private ApplicationContext applicationContext;
 
     @Test(expected = BadRequestException.class)
     public void testBadRequestException() {
-        HomeController homeController = (HomeController)applicationContext.getAutowireCapableBeanFactory().getBean("homeController");
+        HomeController homeController = (HomeController) applicationContext.getAutowireCapableBeanFactory().getBean("homeController");
         homeController.product("00000", new ModelAndView());
     }
 }

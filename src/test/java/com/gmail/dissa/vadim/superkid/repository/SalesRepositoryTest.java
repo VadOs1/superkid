@@ -1,5 +1,6 @@
 package com.gmail.dissa.vadim.superkid.repository;
 
+import com.gmail.dissa.vadim.superkid.config.MailConfig;
 import com.gmail.dissa.vadim.superkid.config.RootConfig;
 import com.gmail.dissa.vadim.superkid.config.WebConfig;
 import com.gmail.dissa.vadim.superkid.domain.Sales;
@@ -21,25 +22,24 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
+        @ContextConfiguration(classes = MailConfig.class),
         @ContextConfiguration(classes = RootConfig.class),
         @ContextConfiguration(classes = WebConfig.class)
 })
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @ActiveProfiles("test")
 public class SalesRepositoryTest {
-
     @Autowired
-    SalesRepository salesRepository;
+    private SalesRepository salesRepository;
 
     @Test
-    public void testFindByOrderId(){
+    public void testFindByOrderId() {
         List<Sales> sales = salesRepository.findByOrderId(1);
         assertEquals(sales.get(0).getOrder().getId(), 1);
         assertEquals(sales.get(1).getOrder().getId(), 1);
         assertEquals(sales.get(0).getProduct().getId(), 1);
         assertEquals(sales.get(1).getProduct().getId(), 2);
-        assertEquals((int)sales.get(0).getPrice(), 100);
-        assertEquals((int)sales.get(1).getPrice(), 200);
-
+        assertEquals((int) sales.get(0).getPrice(), 100);
+        assertEquals((int) sales.get(1).getPrice(), 200);
     }
 }

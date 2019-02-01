@@ -1,5 +1,6 @@
 package com.gmail.dissa.vadim.superkid.exception;
 
+import com.gmail.dissa.vadim.superkid.config.MailConfig;
 import com.gmail.dissa.vadim.superkid.config.RootConfig;
 import com.gmail.dissa.vadim.superkid.config.WebConfig;
 import org.junit.Before;
@@ -22,12 +23,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
+        @ContextConfiguration(classes = MailConfig.class),
         @ContextConfiguration(classes = RootConfig.class),
         @ContextConfiguration(classes = WebConfig.class)
 })
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @ActiveProfiles("test")
-public class NoHadlerFoundExceptionTest {
+public class NoHandlerFoundExceptionTest {
     @Autowired
     private WebApplicationContext wac;
     private MockMvc mockMvc;
@@ -38,8 +40,8 @@ public class NoHadlerFoundExceptionTest {
     }
 
     @Test
-    public void testNoHandlerFoundException() throws Exception{
-       mockMvc.perform(get("/LinkDoesNotExist"))
+    public void testNoHandlerFoundException() throws Exception {
+        mockMvc.perform(get("/LinkDoesNotExist"))
                 .andExpect(status().isNotFound());
     }
 }

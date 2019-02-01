@@ -1,5 +1,6 @@
 package com.gmail.dissa.vadim.superkid.controller;
 
+import com.gmail.dissa.vadim.superkid.config.MailConfig;
 import com.gmail.dissa.vadim.superkid.config.RootConfig;
 import com.gmail.dissa.vadim.superkid.config.WebConfig;
 import com.gmail.dissa.vadim.superkid.service.CRMService;
@@ -28,6 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
+        @ContextConfiguration(classes = MailConfig.class),
         @ContextConfiguration(classes = RootConfig.class),
         @ContextConfiguration(classes = WebConfig.class)
 })
@@ -37,7 +39,7 @@ public class AdminControllerTest {
     @Autowired
     private WebApplicationContext wac;
     private MockMvc mockMvc;
-    CRMService crmService;
+    private CRMService crmService;
 
     @Before
     public void setup() {
