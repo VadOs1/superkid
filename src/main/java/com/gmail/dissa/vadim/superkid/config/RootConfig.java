@@ -18,13 +18,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages={"com.gmail.dissa.vadim.superkid.repository"})
-@ComponentScan(basePackages={"com.gmail.dissa.vadim.superkid.domain"})
+@EnableJpaRepositories(basePackages = {"com.gmail.dissa.vadim.superkid.repository"})
+@ComponentScan(basePackages = {"com.gmail.dissa.vadim.superkid.domain"})
 public class RootConfig {
 
-    // Making DataSource
-    // TODO: CHANGE TO SERVLET CONTAINER JNDI LOOKUP
-    // TODO: SPRING DATA => SPRING DATA REST
     @Bean
     @Profile("!test")
     public DataSource dataSource() {
@@ -38,7 +35,6 @@ public class RootConfig {
         return dataSource;
     }
 
-    // Making TEST DataSource
     @Bean
     @Profile("test")
     public DataSource testDataSource() {
@@ -48,7 +44,6 @@ public class RootConfig {
         return dataSource;
     }
 
-    // Making Flyway migrations
     @Bean(initMethod = "migrate")
     public Flyway flyway() {
         Flyway flyway = new Flyway();
@@ -57,7 +52,6 @@ public class RootConfig {
         return flyway;
     }
 
-    // Making JPA provider
     @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
@@ -67,7 +61,6 @@ public class RootConfig {
         return hibernateJpaVendorAdapter;
     }
 
-    // Making EntityManager factory
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
         LocalContainerEntityManagerFactoryBean lef = new LocalContainerEntityManagerFactoryBean();
@@ -77,16 +70,13 @@ public class RootConfig {
         return lef;
     }
 
-    // Enabling transactions
     @Bean
     public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
         return new JpaTransactionManager(emf);
     }
 
-    // JPA-specific or Hibernate-specific exceptions -> Spring exceptions
     @Bean
     public BeanPostProcessor persistenceTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
-
 }
