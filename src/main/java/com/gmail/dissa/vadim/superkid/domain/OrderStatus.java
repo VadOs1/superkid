@@ -9,9 +9,9 @@ public class OrderStatus implements Serializable {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    long id;
+    private long id;
     @Column(name = "name")
-    String name;
+    private String name;
 
     public OrderStatus() {
 
