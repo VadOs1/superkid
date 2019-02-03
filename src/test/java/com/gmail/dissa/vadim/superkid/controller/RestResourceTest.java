@@ -36,7 +36,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 })
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @ActiveProfiles("test")
-public class RestControllerTest {
+public class RestResourceTest {
     @Autowired
     private WebApplicationContext wac;
     private MockMvc mockMvc;
@@ -57,11 +57,11 @@ public class RestControllerTest {
     @Test
     public void testModelAndViewInRestMethod() {
         ProductService productService = mock(ProductService.class);
-        RestController restController = new RestController(productService);
+        RestResource restResource = new RestResource(productService);
         ProductInfo productInfoActual = new ProductInfo();
         productInfoActual.setArticle("300101");
         when(productService.findProductInfoByArticle("300101")).thenReturn(productInfoActual);
-        ProductInfo productInfoExpected = restController.getProductInfo("300101");
+        ProductInfo productInfoExpected = restResource.getProductInfo("300101");
         assertEquals(productInfoExpected, productInfoActual);
     }
 }

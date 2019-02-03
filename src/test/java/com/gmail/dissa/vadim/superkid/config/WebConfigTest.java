@@ -35,7 +35,7 @@ public class WebConfigTest {
     @Autowired
     AdminController adminController;
     @Autowired
-    RestController restController;
+    RestResource restResource;
     @Autowired
     SeoController seoController;
     @Autowired
@@ -66,7 +66,7 @@ public class WebConfigTest {
 
     @Test
     public void restControllerShouldNotBeNull() {
-        assertNotNull("RestController should not be null", restController);
+        assertNotNull("RestController should not be null", restResource);
     }
 
     @Test
