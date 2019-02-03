@@ -111,6 +111,7 @@ public class Order implements Serializable {
         return salesList;
     }
 
+    // TODO: refactoring required
     public List<Sales> setSalesList(List<Sales> salesList) {
         this.salesList = salesList;
         return salesList;
