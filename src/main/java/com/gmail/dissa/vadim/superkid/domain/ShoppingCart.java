@@ -13,7 +13,7 @@ import java.util.List;
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class ShoppingCart implements Serializable {
 
-    private List<Product> products;
+    private final List<Product> products;
 
     public ShoppingCart() {
         this.products = new ArrayList<>();
