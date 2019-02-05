@@ -44,7 +44,7 @@ public class AdminControllerTest {
     @Before
     public void setup() {
         crmService = mock(CRMService.class);
-        when(crmService.getAuthentificatedUserName()).thenReturn("admin");
+        when(crmService.getAuthenticatedUserName()).thenReturn("admin");
         this.mockMvc = MockMvcBuilders.standaloneSetup(new AdminController(crmService)).build();
     }
 

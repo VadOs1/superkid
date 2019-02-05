@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface CRMService {
 
-    public Client saveNewClient(String name, String email, String phone);
+    Client saveNewClient(String name, String email, String phone);
 
-    public OrderStatus findDefaultOrderStatus();
+    OrderStatus findDefaultOrderStatus();
 
-    public Order saveOrder(String name, String email, String phone);
+    Order saveOrder(String name, String email, String phone);
 
-    public void saveSales(ShoppingCart shoppingCart, Order order);
+    void saveSales(ShoppingCart shoppingCart, Order order);
 
-    public String getAuthentificatedUserName();
+    String getAuthenticatedUserName();
 
-    public List<Sales> getSalesByOrder(Order order);
+    List<Sales> getSalesByOrder(Order order);
 }

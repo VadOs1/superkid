@@ -19,12 +19,11 @@ import java.util.List;
 @Service
 @Transactional
 public class CRMServiceImpl implements CRMService {
-
-    private OrderRepository orderRepository;
-    private ClientRepository clientRepository;
-    private OrderStatusRepository orderStatusRepository;
-    private SalesRepository salesRepository;
-    private ShoppingCartService shoppingCartService;
+    private final OrderRepository orderRepository;
+    private final ClientRepository clientRepository;
+    private final OrderStatusRepository orderStatusRepository;
+    private final SalesRepository salesRepository;
+    private final ShoppingCartService shoppingCartService;
 
     @Autowired
     public CRMServiceImpl(OrderRepository orderRepository,
@@ -67,11 +66,12 @@ public class CRMServiceImpl implements CRMService {
 
     @Override
     public void saveSales(ShoppingCart shoppingCart, Order order) {
-        shoppingCart.getProducts().stream().forEach((product) -> salesRepository.save(new Sales(order, product, (int) product.getPrice())));
+        shoppingCart.getProducts()
+                .forEach((product) -> salesRepository.save(new Sales(order, product, (int) product.getPrice())));
     }
 
     @Override
-    public String getAuthentificatedUserName() {
+    public String getAuthenticatedUserName() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = (User) authentication.getPrincipal();
         return user.getUsername().toUpperCase();

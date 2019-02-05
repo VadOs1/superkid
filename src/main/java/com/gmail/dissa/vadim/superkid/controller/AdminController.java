@@ -19,7 +19,7 @@ public class AdminController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView admin(ModelAndView modelAndView) {
-        modelAndView.addObject("userName", crmService.getAuthentificatedUserName());
+        modelAndView.addObject("userName", crmService.getAuthenticatedUserName());
         modelAndView.setViewName("admin_index");
         return modelAndView;
     }
