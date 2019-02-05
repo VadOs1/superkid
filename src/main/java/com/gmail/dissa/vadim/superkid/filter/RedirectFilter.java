@@ -11,13 +11,14 @@ import java.io.IOException;
 public class RedirectFilter implements Filter {
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
+        // do nothing
     }
 
     // Redirection of authenticated user from /login to /admin
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        if (SecurityContextHolder.getContext().getAuthentication().getName() == "anonymousUser") {
+        if ("anonymousUser".equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
             HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
@@ -27,5 +28,6 @@ public class RedirectFilter implements Filter {
 
     @Override
     public void destroy() {
+        // do nothing
     }
 }
