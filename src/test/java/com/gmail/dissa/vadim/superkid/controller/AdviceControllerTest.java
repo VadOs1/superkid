@@ -1,8 +1,7 @@
 package com.gmail.dissa.vadim.superkid.controller;
 
 import com.gmail.dissa.vadim.superkid.domain.Product;
-import com.gmail.dissa.vadim.superkid.exception.BadRequestException;
-import com.gmail.dissa.vadim.superkid.exception.CheckoutException;
+import com.gmail.dissa.vadim.superkid.exception.SuperkidException;
 import com.gmail.dissa.vadim.superkid.service.ShoppingCartService;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,7 +35,7 @@ public class AdviceControllerTest {
     @Test
     public void testModelAndViewInBadRequestExceptionMethod() {
         AdviceController adviceController = new AdviceController(shoppingCartService);
-        ModelAndView modelAndView = adviceController.otherException(mock(BadRequestException.class), mock(HttpServletRequest.class));
+        ModelAndView modelAndView = adviceController.otherException(mock(SuperkidException.class), mock(HttpServletRequest.class));
         assertEquals(new ArrayList<Product>(), modelAndView.getModel().get("productsInCart"));
         assertEquals("error", modelAndView.getViewName());
     }
@@ -44,7 +43,7 @@ public class AdviceControllerTest {
     @Test
     public void testModelAndViewInCheckoutExceptionMethod() {
         AdviceController adviceController = new AdviceController(shoppingCartService);
-        ModelAndView modelAndView = adviceController.otherException(mock(CheckoutException.class), mock(HttpServletRequest.class));
+        ModelAndView modelAndView = adviceController.otherException(mock(SuperkidException.class), mock(HttpServletRequest.class));
         assertEquals(new ArrayList<Product>(), modelAndView.getModel().get("productsInCart"));
         assertEquals("error", modelAndView.getViewName());
     }

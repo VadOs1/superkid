@@ -1,7 +1,6 @@
 package com.gmail.dissa.vadim.superkid.controller;
 
-import com.gmail.dissa.vadim.superkid.exception.BadRequestException;
-import com.gmail.dissa.vadim.superkid.exception.CheckoutException;
+import com.gmail.dissa.vadim.superkid.exception.SuperkidException;
 import com.gmail.dissa.vadim.superkid.service.ShoppingCartService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +32,7 @@ public class AdviceController {
         return modelAndView;
     }
 
-    @ExceptionHandler({BadRequestException.class, CheckoutException.class})
+    @ExceptionHandler({SuperkidException.class})
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     public ModelAndView otherException(Exception e, HttpServletRequest httpServletRequest) {
         logger.error(httpServletRequest.getRemoteAddr() + " : " + httpServletRequest.getRequestURL());

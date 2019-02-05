@@ -25,11 +25,11 @@ import org.springframework.web.servlet.ModelAndView;
 })
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @ActiveProfiles("test")
-public class BadRequestExceptionTest {
+public class SuperkidExceptionTest {
     @Autowired
     private ApplicationContext applicationContext;
 
-    @Test(expected = BadRequestException.class)
+    @Test(expected = SuperkidException.class)
     public void testBadRequestException() {
         HomeController homeController = (HomeController) applicationContext.getAutowireCapableBeanFactory().getBean("homeController");
         homeController.product("00000", new ModelAndView());

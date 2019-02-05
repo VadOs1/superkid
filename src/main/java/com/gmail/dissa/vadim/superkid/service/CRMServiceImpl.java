@@ -1,7 +1,7 @@
 package com.gmail.dissa.vadim.superkid.service;
 
 import com.gmail.dissa.vadim.superkid.domain.*;
-import com.gmail.dissa.vadim.superkid.exception.CheckoutException;
+import com.gmail.dissa.vadim.superkid.exception.SuperkidException;
 import com.gmail.dissa.vadim.superkid.repository.ClientRepository;
 import com.gmail.dissa.vadim.superkid.repository.OrderRepository;
 import com.gmail.dissa.vadim.superkid.repository.OrderStatusRepository;
@@ -31,7 +31,7 @@ public class CRMServiceImpl implements CRMService {
                           ClientRepository clientRepository,
                           OrderStatusRepository orderStatusRepository,
                           SalesRepository salesRepository,
-                          ShoppingCartService shoppingCartService){
+                          ShoppingCartService shoppingCartService) {
         this.orderRepository = orderRepository;
         this.clientRepository = clientRepository;
         this.orderStatusRepository = orderStatusRepository;
@@ -53,7 +53,7 @@ public class CRMServiceImpl implements CRMService {
     public Order saveOrder(String name, String email, String phone) {
         if (name == null || email == null || phone == null ||
                 shoppingCartService.getShoppingCart().getProducts().size() == 0) {
-            throw new CheckoutException("Empty objects in checkout");
+            throw new SuperkidException("Empty objects in checkout");
         }
         OrderStatus orderStatus = findDefaultOrderStatus();
         Client client = saveNewClient(name.trim(), email.trim(), phone.trim());

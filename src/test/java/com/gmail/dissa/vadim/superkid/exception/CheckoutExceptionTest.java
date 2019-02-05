@@ -29,7 +29,7 @@ public class CheckoutExceptionTest {
     @Autowired
     ApplicationContext applicationContext;
 
-    @Test(expected = CheckoutException.class)
+    @Test(expected = SuperkidException.class)
     public void testCheckoutException() {
         HomeController homeController = (HomeController) applicationContext.getAutowireCapableBeanFactory().getBean("homeController");
         homeController.checkout(null, null, null, new ModelAndView());
