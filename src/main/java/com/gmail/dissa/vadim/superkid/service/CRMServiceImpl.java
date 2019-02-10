@@ -18,6 +18,7 @@ import java.util.List;
 
 @Service
 @Transactional
+// TODO: refactoring required
 public class CRMServiceImpl implements CRMService {
     private final OrderRepository orderRepository;
     private final ClientRepository clientRepository;
