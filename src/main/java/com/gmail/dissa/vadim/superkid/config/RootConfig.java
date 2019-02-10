@@ -45,6 +45,7 @@ public class RootConfig {
     }
 
     @Bean(initMethod = "migrate")
+    @Profile("!test")
     public Flyway flyway() {
         Flyway flyway = new Flyway();
         flyway.setLocations("classpath:migration");
