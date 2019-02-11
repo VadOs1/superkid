@@ -1,6 +1,5 @@
 package com.gmail.dissa.vadim.superkid.service;
 
-
 import com.gmail.dissa.vadim.superkid.domain.Product;
 import com.gmail.dissa.vadim.superkid.domain.ShoppingCart;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +10,10 @@ import java.util.List;
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
-    private ShoppingCart shoppingCart;
+    private final ShoppingCart shoppingCart;
 
     @Autowired
-    public ShoppingCartServiceImpl(ShoppingCart shoppingCart){
+    public ShoppingCartServiceImpl(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
     }
 
