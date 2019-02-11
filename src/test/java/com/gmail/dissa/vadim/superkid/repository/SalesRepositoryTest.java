@@ -18,7 +18,6 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@SuppressWarnings("ALL")
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
@@ -39,7 +38,7 @@ public class SalesRepositoryTest {
         assertEquals(sales.get(1).getOrder().getId(), 1);
         assertEquals(sales.get(0).getProduct().getId(), 1);
         assertEquals(sales.get(1).getProduct().getId(), 2);
-        assertEquals((int) sales.get(0).getPrice(), 100);
-        assertEquals((int) sales.get(1).getPrice(), 200);
+        assertEquals(sales.get(0).getPrice(), 100);
+        assertEquals(sales.get(1).getPrice(), 200);
     }
 }

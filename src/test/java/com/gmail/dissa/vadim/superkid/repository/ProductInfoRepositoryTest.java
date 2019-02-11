@@ -16,7 +16,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import static org.junit.Assert.assertEquals;
 
-@SuppressWarnings("ALL")
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
@@ -37,8 +36,7 @@ public class ProductInfoRepositoryTest {
 
     @Test
     public void testFindByArticle() {
-        String productInfoPhotolinkShortExpected = productInfoRepository.findByArticle("300101").getPhotoLinkShort();
-        assertEquals(productInfoPhotolinkShortExpected, "link_short_1");
+        String productInfoPhotoLinkShortExpected = productInfoRepository.findByArticle("300101").getPhotoLinkShort();
+        assertEquals(productInfoPhotoLinkShortExpected, "link_short_1");
     }
-
 }

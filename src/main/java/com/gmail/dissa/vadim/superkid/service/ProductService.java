@@ -8,13 +8,13 @@ import java.util.Set;
 
 public interface ProductService {
 
-    public Set<Product> getProducts();
+    Set<Product> getProducts();
 
-    public List<Product> getProductsByArticle(String article);
+    List<Product> getProductsByArticle(String article);
 
-    public Product findByProductInfoArticleAndProductSizeId(String article, long sizeId);
+    Product findByProductInfoArticleAndProductSizeId(String article, long sizeId);
 
-    public ProductInfo findProductInfoByArticle(String article);
+    ProductInfo findProductInfoByArticle(String article);
 
-    public List<ProductInfo> getAllProductInfo();
+    List<ProductInfo> getAllProductInfo();
 }

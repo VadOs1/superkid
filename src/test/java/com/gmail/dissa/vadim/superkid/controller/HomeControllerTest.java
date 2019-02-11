@@ -37,7 +37,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SuppressWarnings("ALL")
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
@@ -65,8 +64,8 @@ public class HomeControllerTest {
         shoppingCartService = mock(ShoppingCartService.class);
         homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
 
-        when(productService.getProducts()).thenReturn(new HashSet<Product>());
-        when(shoppingCartService.getProducts()).thenReturn(new ArrayList<Product>());
+        when(productService.getProducts()).thenReturn(new HashSet<>());
+        when(shoppingCartService.getProducts()).thenReturn(new ArrayList<>());
         when(productService.getProductsByArticle("300101")).thenReturn(new ArrayList<>());
         when(shoppingCartService.getAmountOfGoodsInCart()).thenReturn(100.0);
 
@@ -88,7 +87,7 @@ public class HomeControllerTest {
     }
 
     @Test
-    public void testModelAndViewInHomeMethod() throws Exception {
+    public void testModelAndViewInHomeMethod() {
         ModelAndView modelAndView = homeController.home(new ModelAndView());
         assertEquals("home", modelAndView.getViewName());
         assertEquals(new HashSet<Product>(), modelAndView.getModel().get("products"));
@@ -106,7 +105,7 @@ public class HomeControllerTest {
     }
 
     @Test
-    public void testModelAndViewInProductMethod() throws Exception {
+    public void testModelAndViewInProductMethod() {
         HomeController homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
         ModelAndView modelAndView = homeController.product("300101", new ModelAndView());
         assertEquals("product", modelAndView.getViewName());
@@ -125,7 +124,7 @@ public class HomeControllerTest {
     }
 
     @Test
-    public void testModelAndViewInCartMethod() throws Exception {
+    public void testModelAndViewInCartMethod() {
         HomeController homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
         ModelAndView modelAndView = homeController.cart(new ModelAndView());
         assertEquals("cart", modelAndView.getViewName());
@@ -142,7 +141,7 @@ public class HomeControllerTest {
     }
 
     @Test
-    public void testModelAndViewInCartNewMethod() throws Exception {
+    public void testModelAndViewInCartNewMethod() {
         HomeController homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
         ModelAndView modelAndView = homeController.cartNew("300101", 1, new ModelAndView());
         assertNotNull(modelAndView.getModel().get("product"));
@@ -158,7 +157,7 @@ public class HomeControllerTest {
     }
 
     @Test
-    public void testModelAndViewInClearCartMethod() throws Exception {
+    public void testModelAndViewInClearCartMethod() {
         HomeController homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
         ModelAndView modelAndView = homeController.cartClear(new ModelAndView());
         assertEquals(new ArrayList<Product>(), modelAndView.getModel().get("products"));
@@ -176,9 +175,8 @@ public class HomeControllerTest {
                 .andExpect(model().hasNoErrors());
     }
 
-
     @Test
-    public void testModelAndViewInCheckoutMethod() throws Exception {
+    public void testModelAndViewInCheckoutMethod() {
         HomeController homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
         ModelAndView modelAndView = homeController.checkout("name", "email", "phone", new ModelAndView());
         assertNotNull(modelAndView.getModel().get("order"));

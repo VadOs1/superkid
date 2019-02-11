@@ -3,10 +3,8 @@ package com.gmail.dissa.vadim.superkid.service;
 import com.gmail.dissa.vadim.superkid.domain.Product;
 import com.gmail.dissa.vadim.superkid.domain.ProductInfo;
 import com.gmail.dissa.vadim.superkid.exception.SuperkidException;
-import com.gmail.dissa.vadim.superkid.repository.ProductCategoryRepository;
 import com.gmail.dissa.vadim.superkid.repository.ProductInfoRepository;
 import com.gmail.dissa.vadim.superkid.repository.ProductRepository;
-import com.gmail.dissa.vadim.superkid.repository.ProductSizeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,33 +15,28 @@ import java.util.Set;
 
 @Service
 @Transactional
+// TODO: refactoring required
 public class ProductServiceImpl implements ProductService {
 
-    private ProductRepository productRepository;
-    private ProductInfoRepository productInfoRepository;
-    private ProductCategoryRepository productCategoryRepository;
-    private ProductSizeRepository productSizeRepository;
+    private final ProductRepository productRepository;
+    private final ProductInfoRepository productInfoRepository;
 
     @Autowired
-    public ProductServiceImpl(ProductRepository productRepository, ProductInfoRepository productInfoRepository, ProductCategoryRepository productCategoryRepository, ProductSizeRepository productSizeRepository) {
+    public ProductServiceImpl(ProductRepository productRepository, ProductInfoRepository productInfoRepository) {
         this.productRepository = productRepository;
         this.productInfoRepository = productInfoRepository;
-        this.productCategoryRepository = productCategoryRepository;
-        this.productSizeRepository = productSizeRepository;
     }
 
     @Override
     public Set<Product> getProducts() {
-        Set<Product> products = new HashSet<Product>(productRepository.findAll());
-        return products;
+        return new HashSet<>(productRepository.findAll());
     }
 
     @Override
     public List<Product> getProductsByArticle(String article) throws SuperkidException {
         try {
             ProductInfo productInfo = productInfoRepository.findByArticle(article);
-            List<Product> products = productRepository.findByProductInfoId(productInfo.getId());
-            return products;
+            return productRepository.findByProductInfoId(productInfo.getId());
         } catch (RuntimeException e) {
             throw new SuperkidException(e);
         }
