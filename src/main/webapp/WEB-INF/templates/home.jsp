@@ -17,19 +17,19 @@
     <meta name="google-site-verification" content="BY0AcjFpow27z5lGiGn1B4_wYviwIZ5ZyRbvn6G8hTo">
     <meta name='yandex-verification' content='45f9f13ab0f6cd62'>
     <title>Superkid || Детский магазин модных товаров</title>
-    <link rel="shortcut icon" href="/resources/img/superkid_favicon.png">
-    <script src="/resources/bootstrap/js/jquery-1.11.1.min.js"></script>
-    <script src="/resources/bootstrap/js/jquery.appear.js"></script>
-    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/resources/bootstrap/css/animate.css">
-    <link rel="stylesheet" href="/resources/bootstrap/css/style.css">
+    <link rel="shortcut icon" href="/img/superkid_favicon.png">
+    <script src="/bootstrap/js/jquery-1.11.1.min.js"></script>
+    <script src="/bootstrap/js/jquery.appear.js"></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/animate.css">
+    <link rel="stylesheet" href="/bootstrap/css/style.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arial+Black&effect=emboss">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    <script src="/resources/bootstrap/js/main.js"></script>
-    <script src="/resources/bootstrap/js/google_maps.js"></script>
+    <script src="/bootstrap/js/main.js"></script>
+    <script src="/bootstrap/js/google_maps.js"></script>
 </head>
 <body>
 
@@ -93,7 +93,7 @@
         <div class="row kids">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3 class=" intro-text label-kids">
-                    <img src="/resources/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
+                    <img src="/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
                          title="Купить кидсы">
 
                     <p class="super-nav">Супер<span class="kid-nav"> Кидсы</span></p>
@@ -108,7 +108,7 @@
                             <a href="/products/${product.productInfo.article}" title="${product.productInfo.name}">
                                 <img alt="${product.productInfo.name}" title="${product.productInfo.name}"
                                      class="img-thumbnail blink"
-                                     src="/resources/${product.productInfo.photoLinkShort}">
+                                     src="/${product.productInfo.photoLinkShort}">
 
                                 <div>
                                     <button type="button" class="btn btn-sm btn-default">Выбрать размер</button>
@@ -157,7 +157,7 @@
         <div class="row pajamas">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3 class=" intro-text label-pajamas">
-                    <img src="/resources/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
+                    <img src="/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
                          title="Купить детскую пижаму">
 
                     <p class="super-nav">Супер<span class="kid-nav"> Пижамы</span></p>
@@ -172,7 +172,7 @@
                             <a href="/products/${product.productInfo.article}" title="${product.productInfo.name}">
                                 <img alt="${product.productInfo.name}" title="${product.productInfo.name}"
                                      class="img-thumbnail blink"
-                                     src="/resources/${product.productInfo.photoLinkShort}">
+                                     src="/${product.productInfo.photoLinkShort}">
 
                                 <div>
                                     <button type="button" class="btn btn-sm btn-default">Выбрать размер</button>
@@ -221,7 +221,7 @@
         <div class="row panties">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3 class=" intro-text label-panties">
-                    <img src="/resources/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
+                    <img src="/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
                          title="Купить детские трусики">
 
                     <p class="super-nav">Супер<span class="kid-nav"> Трусики</span></p>
@@ -236,7 +236,7 @@
                             <a href="/products/${product.productInfo.article}" title="${product.productInfo.name}">
                                 <img alt="${product.productInfo.name}" title="${product.productInfo.name}"
                                      class="img-thumbnail blink"
-                                     src="/resources/${product.productInfo.photoLinkShort}">
+                                     src="/${product.productInfo.photoLinkShort}">
 
                                 <div>
                                     <button type="button" class="btn btn-sm btn-default">Выбрать размер</button>
@@ -284,7 +284,7 @@
         <div class="row payments">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3 class=" intro-text label-payments">
-                    <img src="/resources/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
+                    <img src="/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
                          title="Superkid || Детский магазин модных товаров">
 
                     <p class="super-nav">Оплата</p>
@@ -318,7 +318,7 @@
         <div class="row delivery">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3 class=" intro-text label-delivery">
-                    <img src="/resources/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
+                    <img src="/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
                          title="Superkid || Детский магазин модных товаров">
 
                     <p class="super-nav"><span class="kid-nav">Доставка</span></p>
@@ -357,7 +357,7 @@
         <div class="row google-map">
             <div id="google-map-block" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3 class=" intro-text label-contacts">
-                    <img src="/resources/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
+                    <img src="/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
                          title="Superkid || Детский магазин модных товаров">
 
                     <p class="super-nav">Контакты</p>
@@ -368,7 +368,7 @@
     </section>
 </div>
 
-<jsp:include page="/WEB-INF/views/sections/ads.jsp"/>
-<jsp:include page="/WEB-INF/views/sections/footer.jsp"/>
+<jsp:include page="/WEB-INF/templates/sections/ads.jsp"/>
+<jsp:include page="/WEB-INF/templates/sections/footer.jsp"/>
 </body>
 </html>

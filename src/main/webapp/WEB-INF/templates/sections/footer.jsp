@@ -37,7 +37,7 @@
                 <h5><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> 067-1495456</h5>
                 <h5><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> 050-1417393</h5>
                 <h5><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> 044-3615154</h5>
-                <h5><img src="/resources/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
+                <h5><img src="/img/superkid_kid.png" alt="Superkid || Детский магазин модных товаров"
                          title="Superkid || Детский магазин модных товаров"></h5>
                 <h5>
                     <a href="#main"><i class="fa fa-facebook-official fa-2x social"></i></a>

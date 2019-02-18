@@ -13,18 +13,18 @@
     <meta name="keywords" content="${productsByArticle.get(0).productInfo.name}"/>
     <meta name="robots" content="index,follow">
     <title>${productsByArticle[0].productInfo.name} || Superkid || Детский магазин модных товаров</title>
-    <link rel="shortcut icon" href="/resources/img/superkid_favicon.png">
-    <script src="/resources/bootstrap/js/jquery-1.11.1.min.js"></script>
-    <script src="/resources/bootstrap/js/jquery.appear.js"></script>
-    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/resources/bootstrap/css/animate.css">
-    <link rel="stylesheet" href="/resources/bootstrap/css/style.css">
+    <link rel="shortcut icon" href="/img/superkid_favicon.png">
+    <script src="/bootstrap/js/jquery-1.11.1.min.js"></script>
+    <script src="/bootstrap/js/jquery.appear.js"></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/animate.css">
+    <link rel="stylesheet" href="/bootstrap/css/style.css">
     <link rel="stylesheet" type="text/css"
           href="http://fonts.googleapis.com/css?family=Arial+Black&effect=emboss">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/resources/bootstrap/js/main.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/js/main.js"></script>
 </head>
 <body>
 
@@ -73,7 +73,7 @@
         <div class="row one-product">
             <div class="col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1 col-xs-12 col-xs-offset-0">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-10 col-xs-offset-1">
-                    <img src="/resources/${productsByArticle[0].productInfo.photoLinkShort}" alt="${productsByArticle[0].productInfo.name}">
+                    <img src="/${productsByArticle[0].productInfo.photoLinkShort}" alt="${productsByArticle[0].productInfo.name}">
                 </div>
                 <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-12 col-xs-offset-0 one-product-top">
                     <h3>${productsByArticle[0].productInfo.name}</h3>
@@ -105,7 +105,7 @@
                     <h4>Описание товара:</h4>
 
                     <p>${productsByArticle[0].productCategory.description}</p>
-                    <img alt="${productsByArticle[0].productInfo.name}" src="/resources/${productsByArticle[0].productInfo.photoLinkLong}"
+                    <img alt="${productsByArticle[0].productInfo.name}" src="/${productsByArticle[0].productInfo.photoLinkLong}"
                          class="hidden-xs hidden-sm">
                 </div>
             </div>
@@ -118,7 +118,7 @@
                                 <a href="/products/${product.productInfo.article}" title="${product.productInfo.name}">
                                     <img alt="${product.productInfo.name}" title="${product.productInfo.name}"
                                          class="img-thumbnail blink"
-                                         src="/resources/${product.productInfo.photoLinkShort}">
+                                         src="/${product.productInfo.photoLinkShort}">
 
                                     <div>
                                         <button type="button" class="btn btn-sm btn-default">Выбрать размер
@@ -138,8 +138,8 @@
     </section>
 </div>
 
-<jsp:include page="/WEB-INF/views/sections/ads.jsp"/>
-<jsp:include page="/WEB-INF/views/sections/footer.jsp"/>
+<jsp:include page="/WEB-INF/templates/sections/ads.jsp"/>
+<jsp:include page="/WEB-INF/templates/sections/footer.jsp"/>
 <script>
     $(document).ready(function () {
         (function (i, s, o, g, r, a, m) {

@@ -2,7 +2,8 @@ package com.gmail.dissa.vadim.superkid.controller;
 
 import com.gmail.dissa.vadim.superkid.exception.SuperkidException;
 import com.gmail.dissa.vadim.superkid.service.ShoppingCartService;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class AdviceController {
     private final ShoppingCartService shoppingCartService;
-    private final Logger logger = Logger.getLogger(AdviceController.class);
+    private final Logger logger = LoggerFactory.getLogger(AdviceController.class);
 
     @Autowired
     public AdviceController(ShoppingCartService shoppingCartService) {

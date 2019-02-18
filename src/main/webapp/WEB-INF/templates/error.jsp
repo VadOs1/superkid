@@ -16,18 +16,18 @@
           content="Детская обувь, детская пижама, детское нижнее белье, купить, пижама супермен, пижама спайдер мен"/>
     <meta name="robots" content="noindex,nofollow">
     <title>Ошибка || Superkid || Детский магазин модных товаров</title>
-    <link rel="shortcut icon" href="/resources/img/superkid_favicon.png">
-    <script src="/resources/bootstrap/js/jquery-1.11.1.min.js"></script>
-    <script src="/resources/bootstrap/js/jquery.appear.js"></script>
-    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/resources/bootstrap/css/animate.css">
-    <link rel="stylesheet" href="/resources/bootstrap/css/style.css">
+    <link rel="shortcut icon" href="/img/superkid_favicon.png">
+    <script src="/bootstrap/js/jquery-1.11.1.min.js"></script>
+    <script src="/bootstrap/js/jquery.appear.js"></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/animate.css">
+    <link rel="stylesheet" href="/bootstrap/css/style.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arial+Black&effect=emboss">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/resources/bootstrap/js/main.js"></script>
-    <script src="/resources/bootstrap/js/jquery.maskedinput.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/js/main.js"></script>
+    <script src="/bootstrap/js/jquery.maskedinput.min.js"></script>
 </head>
 <body>
 
@@ -81,7 +81,7 @@
         </div>
     </section>
 </div>
-<jsp:include page="/WEB-INF/views/sections/ads.jsp"/>
-<jsp:include page="/WEB-INF/views/sections/footer.jsp"/>
+<jsp:include page="/WEB-INF/templates/sections/ads.jsp"/>
+<jsp:include page="/WEB-INF/templates/sections/footer.jsp"/>
 </body>
 </html>

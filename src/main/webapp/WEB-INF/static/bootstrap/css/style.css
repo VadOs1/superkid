@@ -48,7 +48,7 @@ section .main {
     text-align: center;
     height: 700px;
     height: 101vh;
-    background: url(/resources/img/superkid_promo.jpg) fixed;
+    background: url(/img/superkid_promo.jpg) fixed;
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -72,7 +72,7 @@ section .main-text-mob {
     padding-top: 23%;
     height: 600px;
     text-align: center;
-    background: url(/resources/img/superkid_promo_xs.jpg);
+    background: url(/img/superkid_promo_xs.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -99,7 +99,7 @@ section .kids {
 }
 
 section .kids-advantages {
-    background: url("/resources/img/superkid_background.png");
+    background: url("/img/superkid_background.png");
     padding-top: 70px;
     padding-bottom: 0px;
     text-align: center;
@@ -113,7 +113,7 @@ section .pajamas {
 }
 
 section .pajamas-advantages {
-    background: url("/resources/img/superkid_background.png");
+    background: url("/img/superkid_background.png");
     padding-top: 70px;
     padding-bottom: 0px;
     text-align: center;
@@ -127,7 +127,7 @@ section .panties {
 }
 
 section .panties-advantages {
-    background: url("/resources/img/superkid_background.png");
+    background: url("/img/superkid_background.png");
     padding-top: 70px;
     padding-bottom: 0px;
     text-align: center;
@@ -234,7 +234,7 @@ section .google-ads div {
 }
 
 .footer {
-    background: url("/resources/img/superkid_background.png");
+    background: url("/img/superkid_background.png");
     padding-top: 25px;
     padding-bottom: 0px;
 }

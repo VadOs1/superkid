@@ -13,19 +13,19 @@
           content="Детская обувь, детская пижама, детское нижнее белье, купить, пижама супермен, пижама спайдер мен, пижама hello kitty"/>
     <meta name="robots" content="noindex,nofollow">
     <title>Superkid || Детский магазин модных товаров</title>
-    <link rel="shortcut icon" href="/resources/img/superkid_favicon.png">
-    <script src="/resources/bootstrap/js/jquery-1.11.1.min.js"></script>
-    <script src="/resources/bootstrap/js/jquery.appear.js"></script>
-    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/resources/bootstrap/css/animate.css">
-    <link rel="stylesheet" href="/resources/bootstrap/css/style.css">
+    <link rel="shortcut icon" href="/img/superkid_favicon.png">
+    <script src="/bootstrap/js/jquery-1.11.1.min.js"></script>
+    <script src="/bootstrap/js/jquery.appear.js"></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/animate.css">
+    <link rel="stylesheet" href="/bootstrap/css/style.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arial+Black&effect=emboss">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    <script src="/resources/bootstrap/js/main.js"></script>
-    <script src="/resources/bootstrap/js/google_maps.js"></script>
+    <script src="/bootstrap/js/main.js"></script>
+    <script src="/bootstrap/js/google_maps.js"></script>
     <style>body {
         background: white
     }</style>

@@ -46,7 +46,7 @@ public class CRMServiceImpl implements CRMService {
 
     @Override
     public OrderStatus findDefaultOrderStatus() {
-        return orderStatusRepository.findOne((long) 1);
+        return orderStatusRepository.findById(1L);
     }
 
     @Override

@@ -11,7 +11,7 @@ $(document).ready(function () {
     };
     var map = new google.maps.Map(document.getElementById("google-map"), settings);
     var companyPos = new google.maps.LatLng(50.3948321, 30.6201574);
-    var companyLogo = new google.maps.MarkerImage('/resources/img/superkid_kid.png', new google.maps.Size(200, 200),
+    var companyLogo = new google.maps.MarkerImage('/img/superkid_kid.png', new google.maps.Size(200, 200),
         new google.maps.Point(0, 0),
         new google.maps.Point(50, 00)
     );

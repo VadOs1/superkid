@@ -13,6 +13,7 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 
 public class CRMServiceImplTest {
@@ -42,12 +43,12 @@ public class CRMServiceImplTest {
                 orderStatusRepository,
                 salesRepository,
                 shoppingCartService);
-        client = new Client("name","email","phone");
+        client = new Client("name", "email", "phone");
         orderStatus = new OrderStatus();
         order = new Order();
 
         when(clientRepository.save(any(Client.class))).thenReturn(client);
-        when(orderStatusRepository.findOne((long) 1)).thenReturn(orderStatus);
+        when(orderStatusRepository.findById(1L)).thenReturn(orderStatus);
         when(orderRepository.save(any(Order.class))).thenReturn(order);
         when(salesRepository.save(any(Sales.class))).thenReturn(mock(Sales.class));
         when(salesRepository.findByOrderId(order.getId())).thenReturn(new ArrayList<Sales>());
@@ -56,7 +57,7 @@ public class CRMServiceImplTest {
 
     @Test
     public void testSaveNewClient() {
-        Client clientExpected = crmService.saveNewClient("name","email","phone");
+        Client clientExpected = crmService.saveNewClient("name", "email", "phone");
         assertEquals(clientExpected, client);
         verify(clientRepository, times(1)).save(any(Client.class));
     }
@@ -82,7 +83,7 @@ public class CRMServiceImplTest {
 
     @Test
     public void testSaveOrder() {
-        Order expectedOrder = crmService.saveOrder("name", "email","phone");
+        Order expectedOrder = crmService.saveOrder("name", "email", "phone");
         assertNotNull(expectedOrder);
     }
 }
