@@ -1,8 +1,8 @@
 package com.gmail.dissa.vadim.superkid.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class SeoController {
 
     // Producing robots.txt file for search engines
-    @RequestMapping(value = "/robots.txt", produces = {"text/plain"}, method = RequestMethod.GET)
+    @GetMapping(value = "/robots.txt", produces = {"text/plain"})
     @ResponseBody
     public String getRobotsTxt() {
         return "User-agent: *" +
@@ -20,7 +20,7 @@ public class SeoController {
     }
 
     // Producing sitemap.xml file for search engines
-    @RequestMapping(value = "/sitemap.xml", produces = {"application/xml"}, method = RequestMethod.GET)
+    @GetMapping(value = "/sitemap.xml", produces = {"application/xml"})
     @ResponseBody
     public String getSiteMapXml() {
         return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +

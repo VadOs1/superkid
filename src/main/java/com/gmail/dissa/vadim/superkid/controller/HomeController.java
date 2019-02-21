@@ -8,10 +8,7 @@ import com.gmail.dissa.vadim.superkid.service.SendMailService;
 import com.gmail.dissa.vadim.superkid.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.PreDestroy;
@@ -46,7 +43,7 @@ public class HomeController {
         executorService.shutdown();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping("/")
     public ModelAndView home(ModelAndView modelAndView) {
         modelAndView.addObject("products", productService.getProducts());
         modelAndView.addObject("productsInCart", shoppingCartService.getProducts());
@@ -54,7 +51,7 @@ public class HomeController {
         return modelAndView;
     }
 
-    @RequestMapping("/products/{article}")
+    @GetMapping("/products/{article}")
     public ModelAndView product(@PathVariable("article") String article,
                                 ModelAndView modelAndView) {
         modelAndView.addObject("productsByArticle", productService.getProductsByArticle(article));
@@ -64,7 +61,7 @@ public class HomeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/cart/", method = RequestMethod.GET)
+    @GetMapping("/cart/")
     public ModelAndView cart(ModelAndView modelAndView) {
         modelAndView.addObject("productsInCart", shoppingCartService.getProducts());
         modelAndView.addObject("productsInCartAmount", shoppingCartService.getAmountOfGoodsInCart());
@@ -72,7 +69,7 @@ public class HomeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/cart/new/", method = RequestMethod.GET)
+    @GetMapping("/cart/new/")
     public ModelAndView cartNew(@RequestParam(value = "article") String article,
                                 @RequestParam(value = "size") long size,
                                 ModelAndView modelAndView) {
@@ -81,14 +78,14 @@ public class HomeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/cart/clear/", method = RequestMethod.GET)
+    @GetMapping("/cart/clear/")
     public ModelAndView cartClear(ModelAndView modelAndView) {
         modelAndView.addObject("products", shoppingCartService.removeProducts());
         modelAndView.setViewName("redirect:/cart/");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/checkout/", method = RequestMethod.POST)
+    @PostMapping("/checkout/")
     public ModelAndView checkout(@RequestParam(value = "name") String name,
                                  @RequestParam(value = "email") String email,
                                  @RequestParam(value = "phone") String phone,
@@ -103,12 +100,12 @@ public class HomeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/checkout/", method = RequestMethod.GET)
+    @GetMapping("/checkout/")
     public void checkoutGet() {
         throw new SuperkidException("GET method in checkout is not supported");
     }
 
-    @RequestMapping(value = "/login/", method = RequestMethod.GET)
+    @GetMapping("/login/")
     public ModelAndView login(ModelAndView modelAndView) {
         modelAndView.setViewName("admin_login");
         return modelAndView;

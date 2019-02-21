@@ -3,8 +3,8 @@ package com.gmail.dissa.vadim.superkid.controller;
 import com.gmail.dissa.vadim.superkid.service.CRMService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -17,7 +17,7 @@ public class AdminController {
         this.crmService = crmService;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping("/")
     public ModelAndView admin(ModelAndView modelAndView) {
         modelAndView.addObject("userName", crmService.getAuthenticatedUserName());
         modelAndView.setViewName("admin_index");
