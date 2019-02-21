@@ -108,7 +108,7 @@ public class HomeController {
         throw new SuperkidException("GET method in checkout is not supported");
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login/", method = RequestMethod.GET)
     public ModelAndView login(ModelAndView modelAndView) {
         modelAndView.setViewName("admin_login");
         return modelAndView;

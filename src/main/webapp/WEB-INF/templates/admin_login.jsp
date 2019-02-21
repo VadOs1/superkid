@@ -48,7 +48,7 @@
                     </div>
                 </c:if>
 
-                    <form class="form-signin" action="/login" method="post">
+                    <form class="form-signin" action="/login/" method="post">
                         <h2>Авторизация:</h2>
                         <input type="text" class="form-control" placeholder="Логин" required autofocus id="username"
                                name="username"

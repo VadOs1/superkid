@@ -3,11 +3,9 @@ package com.gmail.dissa.vadim.superkid.filter;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter("/login")
 public class RedirectFilter implements Filter {
 
     @Override
