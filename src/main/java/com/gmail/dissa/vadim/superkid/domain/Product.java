@@ -2,14 +2,11 @@ package com.gmail.dissa.vadim.superkid.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
-@RequiredArgsConstructor
 @Entity
 @Table(name = "products")
 public class Product {
@@ -26,11 +23,15 @@ public class Product {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "product_size_id")
     private ProductSize productSize;
-    @NonNull
     @Column(name = "price")
     private double price;
     @Column(name = "quantity")
     private int quantity;
+
+    // TODO: refactoring required
+    public Product(double price) {
+        this.price = price;
+    }
 
     // TODO: refactoring required
     @Override
