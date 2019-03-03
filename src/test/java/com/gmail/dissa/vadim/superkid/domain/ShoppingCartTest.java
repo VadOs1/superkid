@@ -1,25 +1,19 @@
 package com.gmail.dissa.vadim.superkid.domain;
 
-
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class ShoppingCartTest {
-
     private ShoppingCart shoppingCart;
 
     @Before
     public void setup() {
-        List<Product> products = new ArrayList<>();
-        products.add(new Product(10.0));
-        products.add(new Product(10.0));
-        products.add(new Product(10.0));
-        shoppingCart = new ShoppingCart(products);
+        shoppingCart = new ShoppingCart();
+        shoppingCart.addProduct(new Product(10.0));
+        shoppingCart.addProduct(new Product(10.0));
+        shoppingCart.addProduct(new Product(10.0));
     }
 
     @Test

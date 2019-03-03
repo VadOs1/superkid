@@ -5,23 +5,13 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class ShoppingCart implements Serializable {
-
-    private final List<Product> products;
-
-    public ShoppingCart() {
-        this.products = new ArrayList<>();
-    }
-
-    public ShoppingCart(List<Product> products) {
-        this.products = products;
-    }
+public class ShoppingCart {
+    private final List<Product> products = new ArrayList<>();
 
     public void addProduct(Product product) {
         products.add(product);
