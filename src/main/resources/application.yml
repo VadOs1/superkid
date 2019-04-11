@@ -1,0 +1,16 @@
+server:
+  port: 80
+
+logging:
+  path: ./log
+  file: ${logging.path}/superkid-app.log
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/templates/
+      suffix: .jsp
+  resources:
+    static-locations: /WEB-INF/static/
+  jpa:
+    open-in-view: false
