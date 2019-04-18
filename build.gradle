@@ -1,17 +1,21 @@
 plugins {
-    id 'org.springframework.boot' version '2.1.3.RELEASE'
     id 'java'
     id 'war'
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+    id 'com.bmuschko.docker-remote-api' version '3.6.1'
 }
 
-apply plugin: 'io.spring.dependency-management'
 
 group = 'com.gmail.dissa.vadim.superkid'
 version = '2.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '8'
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://plugins.gradle.org/m2/'
+    }
 }
 
 dependencies {
@@ -31,3 +35,23 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
 }
+
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+
+task createDockerfile(type: Dockerfile) {
+    destFile = project.file('build/libs/Dockerfile')
+    from 'openjdk:9'
+    instruction 'RUN mkdir usr/local/superkid-service'
+    copyFile("superkid-2.0.1-SNAPSHOT.war", "/usr/local/superkid-service/superkid-2.0.1-SNAPSHOT.war")
+    entryPoint 'java'
+    defaultCommand '-jar', '/usr/local/superkid-service/superkid-2.0.1-SNAPSHOT.war'
+}
+
+task buildImage(type: DockerBuildImage) {
+    dependsOn createDockerfile
+    inputDir = createDockerfile.destFile.parentFile
+    tag = "vadimdissa/superkid-service:2.0.1"
+}
+
+build.finalizedBy(buildImage)
