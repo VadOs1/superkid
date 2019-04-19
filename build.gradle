@@ -45,7 +45,9 @@ task createDockerfile(type: Dockerfile) {
     instruction 'RUN mkdir usr/local/superkid-service'
     copyFile("superkid-2.0.1-SNAPSHOT.war", "/usr/local/superkid-service/superkid-2.0.1-SNAPSHOT.war")
     entryPoint 'java'
-    defaultCommand '-jar', '/usr/local/superkid-service/superkid-2.0.1-SNAPSHOT.war'
+    defaultCommand '-jar',
+            '-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE}',
+            '/usr/local/superkid-service/superkid-2.0.1-SNAPSHOT.war'
 }
 
 task buildImage(type: DockerBuildImage) {

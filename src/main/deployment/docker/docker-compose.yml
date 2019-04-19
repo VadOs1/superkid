@@ -1,0 +1,10 @@
+version: '3'
+services:
+
+  superkid-service:
+    container_name: superkid-service
+    image:   vadimdissa/superkid-service:2.0.1
+    ports:
+      - "80:80"
+    environment:
+      SPRING_PROFILES_ACTIVE: "prod"
