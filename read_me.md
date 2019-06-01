@@ -7,7 +7,7 @@
 # Run Docker
 - **docker run -p 80:80 -e spring.profiles.active=dev -e superkid.mail.username=name -e superkid.mail.password=pass vadimdissa/superkid-service:2.0.1**
 
-# Run Docker compose
+# Run Docker Compose
 - **cd src/main/deployment/docker**
 - **docker-compose up -d**
 
