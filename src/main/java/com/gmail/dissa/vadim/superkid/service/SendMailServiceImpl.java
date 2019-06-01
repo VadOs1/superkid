@@ -33,12 +33,12 @@ public class SendMailServiceImpl implements SendMailService {
                         .append("\n\n");
             }
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-            simpleMailMessage.setTo(new String[]{"vadim.dissa@gmail.com", "natalia.dissa@gmail.com"});
+            simpleMailMessage.setTo("vadim.dissa@gmail.com", "natalia.dissa@gmail.com");
             simpleMailMessage.setSubject("SuperKid || New Order # " + order.getId());
             simpleMailMessage.setText(body.toString());
             mailSender.send(simpleMailMessage);
         } catch (Exception e) {
-            logger.error(e.getMessage());
+            logger.error(e.getMessage(), e);
         }
     }
 }
