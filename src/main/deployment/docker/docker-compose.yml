@@ -7,4 +7,6 @@ services:
     ports:
       - "80:80"
     environment:
-      SPRING_PROFILES_ACTIVE: "prod"
+      spring.profiles.active: "dev"
+      superkid.mail.username: replace me
+      superkid.mail.password: replace me
