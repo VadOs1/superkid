@@ -9,7 +9,7 @@ plugins {
 
 group = 'com.gmail.dissa.vadim.superkid'
 version = '2.0.1-SNAPSHOT'
-sourceCompatibility = '8'
+sourceCompatibility = '12'
 
 repositories {
     mavenCentral()
@@ -41,7 +41,7 @@ import com.bmuschko.gradle.docker.tasks.image.Dockerfile
 
 task createDockerfile(type: Dockerfile) {
     destFile = project.file('build/libs/Dockerfile')
-    from 'openjdk:9'
+    from 'openjdk:12'
     instruction 'RUN mkdir usr/local/superkid-service'
     copyFile("superkid-2.0.1-SNAPSHOT.war", "/usr/local/superkid-service/superkid-2.0.1-SNAPSHOT.war")
     entryPoint 'java'
