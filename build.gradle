@@ -46,6 +46,8 @@ task createDockerfile(type: Dockerfile) {
     copyFile("superkid-2.0.1-SNAPSHOT.war", "/usr/local/superkid-service/superkid-2.0.1-SNAPSHOT.war")
     entryPoint 'java'
     defaultCommand '-jar',
+            '-Xms256m',
+            '-Xmx450m',
            '/usr/local/superkid-service/superkid-2.0.1-SNAPSHOT.war'
 }
 
