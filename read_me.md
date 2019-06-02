@@ -1,5 +1,5 @@
 # Build
-- **gradle clean build**
+- **gradlew clean build**
 
 # Run Jar
 - **java -Dsuperkid.mail.username=name -Dsuperkid.mail.password=pass -jar -Dspring.profiles.active=dev build/libs/superkid-2.0.1-SNAPSHOT.war**
