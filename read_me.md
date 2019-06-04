@@ -17,5 +17,7 @@
 
 # AWS ECS Deployment
 - **(aws ecr get-login --no-include-email --region us-east-1)**
-- **docker tag vadimdissa/superkid-service:2.0.1 065320792144.dkr.ecr.us-east-1.amazonaws.com/vadimdissa/superkid-service:latest**
+- **docker tag vadimdissa/superkid-service:2.0.8 065320792144.dkr.ecr.us-east-1.amazonaws.com/vadimdissa/superkid-service:2.08**
+- **docker tag vadimdissa/superkid-service:2.0.8 065320792144.dkr.ecr.us-east-1.amazonaws.com/vadimdissa/superkid-service:latest**
+- **docker push 065320792144.dkr.ecr.us-east-1.amazonaws.com/vadimdissa/superkid-service:2.08**
 - **docker push 065320792144.dkr.ecr.us-east-1.amazonaws.com/vadimdissa/superkid-service:latest**

@@ -8,7 +8,7 @@ plugins {
 
 
 group = 'com.gmail.dissa.vadim.superkid'
-version = '2.0.4'
+version = '2.0.8'
 sourceCompatibility = '12'
 
 repositories {
@@ -54,7 +54,7 @@ task createDockerfile(type: Dockerfile) {
 task buildImage(type: DockerBuildImage) {
     dependsOn createDockerfile
     inputDir = createDockerfile.destFile.get().asFile.parentFile
-    tags = ["vadimdissa/superkid-service:${version}".toString()]
+    tags = ["vadimdissa/superkid-service:${version}"]
 }
 
 build.finalizedBy(buildImage)
