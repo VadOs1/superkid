@@ -8,7 +8,7 @@ plugins {
 
 
 group = 'com.gmail.dissa.vadim.superkid'
-version = '2.0.1'
+version = '2.0.4'
 sourceCompatibility = '12'
 
 repositories {
@@ -43,18 +43,18 @@ task createDockerfile(type: Dockerfile) {
     destFile = project.file('build/libs/Dockerfile')
     from 'openjdk:12'
     instruction 'RUN mkdir usr/local/superkid-service'
-    copyFile("superkid-2.0.1.war", "/usr/local/superkid-service/superkid-2.0.1.war")
+    copyFile("superkid-${version}.war", "/usr/local/superkid-service/superkid-${version}.war")
     entryPoint 'java'
     defaultCommand '-jar',
             '-Xms256m',
             '-Xmx450m',
-           '/usr/local/superkid-service/superkid-2.0.1.war'
+           "/usr/local/superkid-service/superkid-${version}.war"
 }
 
 task buildImage(type: DockerBuildImage) {
     dependsOn createDockerfile
     inputDir = createDockerfile.destFile.get().asFile.parentFile
-    tags = ["vadimdissa/superkid-service:2.0.1".toString()]
+    tags = ["vadimdissa/superkid-service:${version}".toString()]
 }
 
 build.finalizedBy(buildImage)
