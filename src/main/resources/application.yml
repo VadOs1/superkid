@@ -15,8 +15,3 @@ spring:
   jpa:
     open-in-view: false
     generate-ddl: true
-
-superkid:
-  mail:
-    username: replace me
-    password: replace me

@@ -1,8 +1,4 @@
 spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/superkid_service
-    username: user
-    password: password
   jpa:
     show-sql: true
 
