@@ -4,7 +4,7 @@ CREATE TABLE product_categories
   name        varchar(50)   NOT NULL,
   description varchar(2000) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 INSERT INTO product_categories
 VALUES (1, 'Кидсы',
         '<br>Удобные и модные детские Кидсы <br><br>\n\nЛегкие, красивые, яркие <br><br>\n\nОтличное качество<br><br>\n\nВаш малыш будет в восторге <br><br>\n\nМатериал: полимер на основе мягкого  пластика <br><br>\n\nСтрана производитель: Гонконг <br><br>\n\nВ наличии все размеры: <br><br>\n\n24 размер, 2,5 года, стопа 14,6 см<br>\n25 размер, 2,5 — 3 года, стопа 15,3 см<br>\n26 размер, 3 — 4 года, стопа 16,5 см <br>\n27 размер, 4 — 4,5 года, стопа 17,3 см <br>\n28 размер, 4,5 — 5 лет, стопа 17,6 см <br>\n29 размер, 5-6 лет, стопа 18,5 см<br><br>\n\nДоставка: <br><br>\n\n— самовывоз по адресу г.Киев, пр. Бажана 10 (метро Осокорки) — бесплатно <br>\n— доставка курьером до любой станции метро (г. Киев) — 20 грн <br>\n— доставка курьером по указанному адресу (г.Киев) — 30 грн <br>\n— доставка Укрпочтой или Новой Почтой в любой город Украины — 25 грн <br><br>\n\nОплата: <br><br>\n— наличными курьеру при получении товара <br>\n— предоплата на карточку Приватбанка <br>'),
@@ -21,7 +21,7 @@ CREATE TABLE product_info
   photo_link_short varchar(100) NOT NULL,
   photo_link_long  varchar(100) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 INSERT INTO product_info
 VALUES (1,
         'Купить Кидсы (цвет голубой)',
@@ -149,7 +149,7 @@ CREATE TABLE product_sizes
   id   int(10) unsigned NOT NULL AUTO_INCREMENT,
   size varchar(100) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 INSERT INTO product_sizes
 VALUES (1,
         '[24 размер, 2,5 года, стопа 14,6 см]'),
@@ -194,7 +194,7 @@ CREATE TABLE products
   FOREIGN KEY (product_category_id) REFERENCES product_categories (id),
   FOREIGN KEY (product_size_id) REFERENCES product_sizes (id),
   FOREIGN KEY (product_info_id) REFERENCES product_info (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 INSERT INTO products
 VALUES (1,
@@ -925,14 +925,14 @@ CREATE TABLE order_clients
   email varchar(50) NOT NULL,
   phone varchar(50) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 CREATE TABLE order_statuses
 (
   id   int(10) unsigned NOT NULL AUTO_INCREMENT,
   name varchar(100) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 INSERT INTO order_statuses (name)
 VALUES ('Новый'),
        ('В работе'),
@@ -950,7 +950,7 @@ CREATE TABLE orders
   PRIMARY KEY (id),
   FOREIGN KEY (order_status) REFERENCES order_statuses (id),
   FOREIGN KEY (client_id) REFERENCES order_clients (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 CREATE TABLE sales
 (
@@ -961,4 +961,4 @@ CREATE TABLE sales
   PRIMARY KEY (id),
   FOREIGN KEY (order_id) REFERENCES orders (id),
   FOREIGN KEY (product_id) REFERENCES products (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
