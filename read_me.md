@@ -19,5 +19,5 @@
 - **(aws ecr get-login --no-include-email --region us-east-1)**
 - **docker tag vadimdissa/superkid-service:2.0.9 065320792144.dkr.ecr.us-east-1.amazonaws.com/vadimdissa/superkid-service:2.09**
 - **docker tag vadimdissa/superkid-service:2.0.9 065320792144.dkr.ecr.us-east-1.amazonaws.com/vadimdissa/superkid-service:latest**
-- **docker push 065320792144.dkr.ecr.us-east-1.amazonaws.com/vadimdissa/superkid-service:2.08**
+- **docker push 065320792144.dkr.ecr.us-east-1.amazonaws.com/vadimdissa/superkid-service:2.09**
 - **docker push 065320792144.dkr.ecr.us-east-1.amazonaws.com/vadimdissa/superkid-service:latest**
