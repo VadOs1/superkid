@@ -1,5 +1,6 @@
 package com.gmail.dissa.vadim.superkid.controller;
 
+import com.gmail.dissa.vadim.superkid.AbstractSuperkidSystemTest;
 import com.gmail.dissa.vadim.superkid.domain.Order;
 import com.gmail.dissa.vadim.superkid.domain.Product;
 import com.gmail.dissa.vadim.superkid.exception.SuperkidException;
@@ -32,13 +33,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-@ActiveProfiles("test")
-public class HomeControllerTest {
-    @Autowired
-    private WebApplicationContext wac;
+public class HomeControllerTest extends AbstractSuperkidSystemTest {
     private MockMvc mockMvc;
     private HomeController homeController;
     private ProductService productService;

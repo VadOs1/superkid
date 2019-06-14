@@ -1,22 +1,14 @@
 package com.gmail.dissa.vadim.superkid.config;
 
+import com.gmail.dissa.vadim.superkid.AbstractSuperkidSystemTest;
 import com.gmail.dissa.vadim.superkid.domain.ShoppingCart;
 import com.gmail.dissa.vadim.superkid.repository.*;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import static junit.framework.TestCase.assertNotNull;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-@ActiveProfiles("test")
-public class RootConfigTest {
+public class RootConfigSystemTest extends AbstractSuperkidSystemTest {
     @Autowired
     private ClientRepository clientRepository;
     @Autowired
@@ -39,46 +31,46 @@ public class RootConfigTest {
 
     @Test
     public void clientRepositoryShouldNotBeNull() {
-        assertNotNull("ClientRepository should not be null",clientRepository);
+        assertNotNull("ClientRepository should not be null", clientRepository);
     }
 
     @Test
     public void orderRepositoryShouldNotBeNull() {
-        assertNotNull("OrderRepository should not be null",orderRepository);
+        assertNotNull("OrderRepository should not be null", orderRepository);
     }
 
     @Test
     public void orderStatusRepositoryShouldNotBeNull() {
-        assertNotNull("OrderStatusRepository should not be null",orderStatusRepository);
+        assertNotNull("OrderStatusRepository should not be null", orderStatusRepository);
     }
 
     @Test
     public void productCategoryRepositoryShouldNotBeNull() {
-        assertNotNull("ProductCategoryRepository should not be null",productCategoryRepository);
+        assertNotNull("ProductCategoryRepository should not be null", productCategoryRepository);
     }
 
     @Test
     public void productInfoRepositoryShouldNotBeNull() {
-        assertNotNull("ProductInfoRepository should not be null",productInfoRepository);
+        assertNotNull("ProductInfoRepository should not be null", productInfoRepository);
     }
 
     @Test
     public void productRepositoryShouldNotBeNull() {
-        assertNotNull("ProductRepository should not be null",productRepository);
+        assertNotNull("ProductRepository should not be null", productRepository);
     }
 
     @Test
     public void productSizeRepositoryShouldNotBeNull() {
-        assertNotNull("ProductSizeRepository should not be null",productSizeRepository);
+        assertNotNull("ProductSizeRepository should not be null", productSizeRepository);
     }
 
     @Test
     public void salesRepositoryShouldNotBeNull() {
-        assertNotNull("SalesRepository should not be null",salesRepository);
+        assertNotNull("SalesRepository should not be null", salesRepository);
     }
 
     @Test
     public void shoppingCartShouldNotBeNull() {
-        assertNotNull("ShoppingCart should not be null",shoppingCart);
+        assertNotNull("ShoppingCart should not be null", shoppingCart);
     }
 }

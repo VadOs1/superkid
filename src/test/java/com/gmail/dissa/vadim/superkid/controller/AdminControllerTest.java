@@ -1,13 +1,9 @@
 package com.gmail.dissa.vadim.superkid.controller;
 
+import com.gmail.dissa.vadim.superkid.AbstractSuperkidSystemTest;
 import com.gmail.dissa.vadim.superkid.service.CRMService;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,11 +14,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-@ActiveProfiles("test")
-public class AdminControllerTest {
+public class AdminControllerTest extends AbstractSuperkidSystemTest {
     private MockMvc mockMvc;
     private CRMService crmService;
 
