@@ -119,8 +119,8 @@ public class HomeControllerTest extends AbstractSuperkidSystemTest {
 
     @Test
     public void testResponseCodeAndViewNameAndModelAttributesInCartNewMethod() throws Exception {
-        mockMvc.perform(get("/cart/new/?article=300101&size=1")).andExpect(status().is3xxRedirection())
-                .andExpect(view().name("redirect:/cart/"))
+        mockMvc.perform(get("/cart/new/?article=300101&size=1")).andExpect(status().is2xxSuccessful())
+                .andExpect(view().name("forward:/cart/"))
                 .andExpect(model().attributeExists("product"))
                 .andExpect(model().hasNoErrors());
     }
@@ -130,13 +130,13 @@ public class HomeControllerTest extends AbstractSuperkidSystemTest {
         HomeController homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
         ModelAndView modelAndView = homeController.cartNew("300101", 1, new ModelAndView());
         assertNotNull(modelAndView.getModel().get("product"));
-        assertEquals("redirect:/cart/", modelAndView.getViewName());
+        assertEquals("forward:/cart/", modelAndView.getViewName());
     }
 
     @Test
     public void testResponseCodeAndViewNameAndModelAttributesInClearCartMethod() throws Exception {
-        mockMvc.perform(get("/cart/clear/")).andExpect(status().is3xxRedirection())
-                .andExpect(view().name("redirect:/cart/"))
+        mockMvc.perform(get("/cart/clear/")).andExpect(status().is2xxSuccessful())
+                .andExpect(view().name("forward:/cart/"))
                 .andExpect(model().attribute("products", new ArrayList<Product>()))
                 .andExpect(model().hasNoErrors());
     }
@@ -146,7 +146,7 @@ public class HomeControllerTest extends AbstractSuperkidSystemTest {
         HomeController homeController = new HomeController(productService, crmService, shoppingCartService, sendMailService);
         ModelAndView modelAndView = homeController.cartClear(new ModelAndView());
         assertEquals(new ArrayList<Product>(), modelAndView.getModel().get("products"));
-        assertEquals("redirect:/cart/", modelAndView.getViewName());
+        assertEquals("forward:/cart/", modelAndView.getViewName());
     }
 
     @Test

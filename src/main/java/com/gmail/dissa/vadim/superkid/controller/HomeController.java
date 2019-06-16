@@ -74,14 +74,14 @@ public class HomeController {
                                 @RequestParam(value = "size") long size,
                                 ModelAndView modelAndView) {
         modelAndView.addObject("product", shoppingCartService.addProduct(productService.findByProductInfoArticleAndProductSizeId(article, size)));
-        modelAndView.setViewName("redirect:/cart/");
+        modelAndView.setViewName("forward:/cart/");
         return modelAndView;
     }
 
     @GetMapping("/cart/clear/")
     public ModelAndView cartClear(ModelAndView modelAndView) {
         modelAndView.addObject("products", shoppingCartService.removeProducts());
-        modelAndView.setViewName("redirect:/cart/");
+        modelAndView.setViewName("forward:/cart/");
         return modelAndView;
     }
 
