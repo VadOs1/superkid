@@ -2,7 +2,9 @@ package com.gmail.dissa.vadim.superkid.config;
 
 import com.gmail.dissa.vadim.superkid.AbstractSuperkidSystemTest;
 import com.gmail.dissa.vadim.superkid.aspect.ControllerExceptionAspect;
-import com.gmail.dissa.vadim.superkid.controller.*;
+import com.gmail.dissa.vadim.superkid.controller.AdviceController;
+import com.gmail.dissa.vadim.superkid.controller.HomeController;
+import com.gmail.dissa.vadim.superkid.controller.SeoController;
 import com.gmail.dissa.vadim.superkid.service.CRMService;
 import com.gmail.dissa.vadim.superkid.service.ProductService;
 import com.gmail.dissa.vadim.superkid.service.SendMailService;
@@ -17,10 +19,6 @@ public class WebConfigSystemTest extends AbstractSuperkidSystemTest {
     ControllerExceptionAspect controllerExceptionAspect;
     @Autowired
     HomeController homeController;
-    @Autowired
-    AdminController adminController;
-    @Autowired
-    RestResource restResource;
     @Autowired
     SeoController seoController;
     @Autowired
@@ -42,16 +40,6 @@ public class WebConfigSystemTest extends AbstractSuperkidSystemTest {
     @Test
     public void homeControllerShouldNotBeNull() {
         assertNotNull("HomeController should not be null", homeController);
-    }
-
-    @Test
-    public void adminControllerShouldNotBeNull() {
-        assertNotNull("AdminController should not be null", adminController);
-    }
-
-    @Test
-    public void restControllerShouldNotBeNull() {
-        assertNotNull("RestController should not be null", restResource);
     }
 
     @Test

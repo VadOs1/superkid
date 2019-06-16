@@ -7,9 +7,6 @@ import com.gmail.dissa.vadim.superkid.repository.OrderRepository;
 import com.gmail.dissa.vadim.superkid.repository.OrderStatusRepository;
 import com.gmail.dissa.vadim.superkid.repository.SalesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -69,13 +66,6 @@ public class CRMServiceImpl implements CRMService {
     public void saveSales(ShoppingCart shoppingCart, Order order) {
         shoppingCart.getProducts()
                 .forEach((product) -> salesRepository.save(new Sales(order, product, (int) product.getPrice())));
-    }
-
-    @Override
-    public String getAuthenticatedUserName() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = (User) authentication.getPrincipal();
-        return user.getUsername().toUpperCase();
     }
 
     @Override

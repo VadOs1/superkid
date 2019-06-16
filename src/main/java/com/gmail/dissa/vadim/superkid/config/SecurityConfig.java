@@ -12,16 +12,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .logout()
-                .invalidateHttpSession(false)
-                .and()
                 .authorizeRequests()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().permitAll()
-                .and()
-                .formLogin()
-                .loginPage("/login/")
-                .defaultSuccessUrl("/admin/", true)
+                .anyRequest()
+                .permitAll()
                 .and()
                 .csrf().disable();
     }
@@ -30,8 +23,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .passwordEncoder(new BCryptPasswordEncoder())
-                .withUser("vadim").password("$2a$10$zS87sOWn8nMuoQK/MHA8euuNd0NhwCgK3RXZIdtvB.KemAYBzbQ7C").roles("ADMIN").and()
-                .withUser("natalia").password("222222").roles("ADMIN");
+                .passwordEncoder(new BCryptPasswordEncoder());
     }
 }

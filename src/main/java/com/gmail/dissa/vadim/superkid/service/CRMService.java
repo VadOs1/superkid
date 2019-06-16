@@ -14,7 +14,5 @@ public interface CRMService {
 
     void saveSales(ShoppingCart shoppingCart, Order order);
 
-    String getAuthenticatedUserName();
-
     List<Sales> getSalesByOrder(Order order);
 }
