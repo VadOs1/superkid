@@ -23,8 +23,8 @@
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bootstrap/css/animate.css">
     <link rel="stylesheet" href="/bootstrap/css/style.css">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arial+Black&effect=emboss">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Arial+Black&effect=emboss">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyAUWcgHkY5BGhl13-GJjdeST6bntdJ_qsQ"></script>
