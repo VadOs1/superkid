@@ -9,7 +9,6 @@ import java.util.List;
 
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
-
     private final ShoppingCart shoppingCart;
 
     @Autowired

@@ -17,7 +17,6 @@ import java.util.Set;
 @Transactional
 // TODO: refactoring required
 public class ProductServiceImpl implements ProductService {
-
     private final ProductRepository productRepository;
     private final ProductInfoRepository productInfoRepository;
 

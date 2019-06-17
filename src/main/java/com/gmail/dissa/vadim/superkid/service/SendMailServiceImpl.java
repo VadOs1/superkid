@@ -2,16 +2,15 @@ package com.gmail.dissa.vadim.superkid.service;
 
 import com.gmail.dissa.vadim.superkid.domain.Order;
 import com.gmail.dissa.vadim.superkid.domain.Sales;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
 @Service
+@Log4j2
 public class SendMailServiceImpl implements SendMailService {
-    private final Logger logger = LoggerFactory.getLogger(SendMailServiceImpl.class);
     private final MailSender mailSender;
 
     @Autowired
@@ -38,7 +37,7 @@ public class SendMailServiceImpl implements SendMailService {
             simpleMailMessage.setText(body.toString());
             mailSender.send(simpleMailMessage);
         } catch (Exception e) {
-            logger.error(e.getMessage(), e);
+            log.error(e.getMessage(), e);
         }
     }
 }

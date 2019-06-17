@@ -2,8 +2,7 @@ package com.gmail.dissa.vadim.superkid.controller;
 
 import com.gmail.dissa.vadim.superkid.exception.SuperkidException;
 import com.gmail.dissa.vadim.superkid.service.ShoppingCartService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -15,9 +14,9 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
+@Log4j2
 public class AdviceController {
     private final ShoppingCartService shoppingCartService;
-    private final Logger logger = LoggerFactory.getLogger(AdviceController.class);
 
     @Autowired
     public AdviceController(ShoppingCartService shoppingCartService) {
@@ -36,8 +35,8 @@ public class AdviceController {
     @ExceptionHandler({SuperkidException.class})
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     public ModelAndView otherException(Exception e, HttpServletRequest httpServletRequest) {
-        logger.error(httpServletRequest.getRemoteAddr() + " : " + httpServletRequest.getRequestURL());
-        logger.error(e.getMessage(), e);
+        log.error(httpServletRequest.getRemoteAddr() + " : " + httpServletRequest.getRequestURL());
+        log.error(e.getMessage(), e);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("productsInCart", shoppingCartService.getProducts());
         modelAndView.setViewName("error");
