@@ -28,7 +28,6 @@ public class RootConfigSystemTest extends AbstractSuperkidSystemTest {
     @Autowired
     private ShoppingCart shoppingCart;
 
-
     @Test
     public void clientRepositoryShouldNotBeNull() {
         assertNotNull("ClientRepository should not be null", clientRepository);
