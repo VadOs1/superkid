@@ -1,6 +1,6 @@
 package com.gmail.dissa.vadim.superkid.config;
 
-import com.gmail.dissa.vadim.superkid.properties.Properties;
+import com.gmail.dissa.vadim.superkid.property.Properties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
