@@ -19,15 +19,15 @@ public class MailConfig {
     @Bean
     public MailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("smtp.gmail.com");
-        mailSender.setPort(587);
+        mailSender.setHost(properties.getMail().getHost());
+        mailSender.setPort(properties.getMail().getPort());
         mailSender.setUsername(properties.getMail().getUsername());
         mailSender.setPassword(properties.getMail().getPassword());
-        mailSender.setDefaultEncoding("UTF-8");
+        mailSender.setDefaultEncoding(properties.getMail().getEncoding());
 
         java.util.Properties props = mailSender.getJavaMailProperties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
+        props.put(properties.getMail().getAuth(), properties.getMail().getAuthStatus());
+        props.put(properties.getMail().getStarttls(), properties.getMail().getStarttlsStatus());
         return mailSender;
     }
 }
