@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/")
 public class SeoController {
 
+   // Producing ads.txt file for Google AdSense
+    @GetMapping(value = "/ads.txt", produces = {"text/plain"})
+    @ResponseBody
+    public String getAdsTxt() {
+        return "google.com, pub-1253674175341917, DIRECT, f08c47fec0942fa0";
+    }
+
     // Producing robots.txt file for search engines
     @GetMapping(value = "/robots.txt", produces = {"text/plain"})
     @ResponseBody
