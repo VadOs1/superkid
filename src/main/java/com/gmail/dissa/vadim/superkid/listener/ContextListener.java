@@ -14,25 +14,21 @@ import org.springframework.stereotype.Component;
 @Log4j2
 public class ContextListener {
     private final SendMailService sendMailService;
-    private final Environment environment;
 
     @Autowired
     public ContextListener(SendMailService sendMailService, Environment environment) {
         this.sendMailService = sendMailService;
-        this.environment = environment;
     }
 
     @EventListener(ContextRefreshedEvent.class)
     public void contextRefreshedEventListener() {
-        log.info("Superkid application context refreshed");
-        sendMailService.sendMail(String.format("Superkid application started on %s environment",
-                String.join(",", environment.getActiveProfiles())), "Ok");
+        log.info("Superkid application context refreshed.");
+        sendMailService.sendMail("Superkid application started.", "Ok.");
     }
 
     @EventListener({ContextClosedEvent.class, ContextStoppedEvent.class})
     public void contextClosedEventListener() {
-        log.info("Superkid application context closed / stopped");
-        sendMailService.sendMail(String.format("Superkid application stopped on %s environment",
-                String.join(",", environment.getActiveProfiles())), "Ok");
+        log.info("Superkid application context closed / stopped.");
+        sendMailService.sendMail("Superkid application stopped.", "Ok.");
     }
 }
