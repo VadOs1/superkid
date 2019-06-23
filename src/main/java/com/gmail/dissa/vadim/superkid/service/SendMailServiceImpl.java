@@ -39,7 +39,8 @@ public class SendMailServiceImpl implements SendMailService {
 
     public void sendMail(String subject, String message) {
         try {
-            log.info(String.format("Sending mail. Subject: %s, message: %s", subject, message));
+            log.info(String.format("Sending mail to: %s. Subject: %s, message: %s",
+                    properties.getMail().getReceivers(), subject, message));
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setTo(properties.getMail().getReceivers().toArray(String[]::new));
             simpleMailMessage.setSubject(subject);
