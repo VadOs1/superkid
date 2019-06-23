@@ -7,6 +7,7 @@ import com.gmail.dissa.vadim.superkid.property.Mail;
 import com.gmail.dissa.vadim.superkid.property.Properties;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.core.env.Environment;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
@@ -31,7 +32,10 @@ public class SendMailServiceTest {
         mail.setReceivers(new ArrayList<>());
         properties.setMail(mail);
 
-        sendMailService = new SendMailServiceImpl(mailSender, properties);
+        Environment environment = mock(Environment.class);
+        when(environment.getActiveProfiles()).thenReturn(new String[0]);
+
+        sendMailService = new SendMailServiceImpl(mailSender, properties, environment);
         order = new Order(new Date(), mock(OrderStatus.class),
                 mock(Client.class), "", "", "");
         order.setSalesList(new ArrayList<>());
