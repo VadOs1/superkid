@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 // TODO: replace with AWS SNS
 public class SendMailServiceImpl implements SendMailService {
     private final MailSender mailSender;
-    private Properties properties;
+    private final Properties properties;
 
     @Autowired
     public SendMailServiceImpl(MailSender mailSender, Properties properties) {

@@ -7,27 +7,32 @@ import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.ContextStoppedEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 @Component
 @Log4j2
 public class ContextListener {
     private final SendMailService sendMailService;
+    private final Environment environment;
 
     @Autowired
-    public ContextListener(SendMailService sendMailService) {
+    public ContextListener(SendMailService sendMailService, Environment environment) {
         this.sendMailService = sendMailService;
+        this.environment = environment;
     }
 
     @EventListener(ContextRefreshedEvent.class)
     public void contextRefreshedEventListener() {
         log.info("Superkid application context refreshed");
-        sendMailService.sendMail("Superkid application started", "Ok");
+        sendMailService.sendMail(String.format("Superkid application started on %s environment",
+                String.join(",", environment.getActiveProfiles())), "Ok");
     }
 
     @EventListener({ContextClosedEvent.class, ContextStoppedEvent.class})
     public void contextClosedEventListener() {
         log.info("Superkid application context closed / stopped");
-        sendMailService.sendMail("Superkid application stopped", "Ok");
+        sendMailService.sendMail(String.format("Superkid application stopped on %s environment",
+                String.join(",", environment.getActiveProfiles())), "Ok");
     }
 }
