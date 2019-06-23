@@ -4,4 +4,6 @@ import com.gmail.dissa.vadim.superkid.domain.Order;
 
 public interface SendMailService {
     void sendMail(Order order);
+
+    void sendMail(String subject, String message);
 }
