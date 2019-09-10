@@ -4,7 +4,7 @@ import com.gmail.dissa.vadim.superkid.domain.Order;
 import com.gmail.dissa.vadim.superkid.domain.Sales;
 import com.gmail.dissa.vadim.superkid.exception.SuperkidException;
 import com.gmail.dissa.vadim.superkid.property.Properties;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.MailSender;
@@ -12,7 +12,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
 @Service
-@Log4j2
+@Slf4j
 // TODO: replace with AWS SNS
 public class SendMailServiceImpl implements SendMailService {
     private final MailSender mailSender;
@@ -42,7 +42,7 @@ public class SendMailServiceImpl implements SendMailService {
     }
 
     public void sendMail(String subject, String message) {
-        if(subject == null || message == null){
+        if (subject == null || message == null) {
             throw new SuperkidException("Subject and email should not be null.");
         }
         try {

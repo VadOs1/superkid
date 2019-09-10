@@ -1,7 +1,7 @@
 package com.gmail.dissa.vadim.superkid.listener;
 
 import com.gmail.dissa.vadim.superkid.service.SendMailService;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -11,7 +11,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 @Component
-@Log4j2
+@Slf4j
 public class ContextListener {
     private final SendMailService sendMailService;
 
