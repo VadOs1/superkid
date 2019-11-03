@@ -2,10 +2,10 @@
 - **gradlew clean build**
 
 # Run Jar
-- **java -Dsuperkid.mail.username=name -Dsuperkid.mail.password=pass -jar -Dspring.profiles.active=dev build/libs/superkid-2.1.0.war**
+- **java -Dsuperkid.mail.username=name -Dsuperkid.mail.password=pass -jar -Dspring.profiles.active=dev build/libs/superkid-2.1.2.war**
 
 # Run Docker
-- **docker run -p 80:80 -e spring.profiles.active=dev -e superkid.mail.username=name -e superkid.mail.password=pass vadimdissa/superkid-service:2.1.0**
+- **docker run -p 80:80 -e spring.profiles.active=dev -e superkid.mail.username=name -e superkid.mail.password=pass vadimdissa/superkid-service:2.1.2**
 
 # Run Docker Compose
 - **cd src/main/deployment/docker**
