@@ -3,7 +3,7 @@ plugins {
     id 'war'
     id 'org.springframework.boot' version '2.2.0.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-    id 'com.bmuschko.docker-remote-api' version '5.3.0'
+    id 'com.bmuschko.docker-remote-api' version '6.6.0'
 }
 
 
